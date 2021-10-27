@@ -32,7 +32,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        express: 60 * 60 * 24,
+        express: 60 * 60 * 24 * 1000, //24hrs
     }
 }))
 
@@ -103,16 +103,15 @@ app.post('/login', async (req, res) => {
             if (result.length > 0) {
                 bcrypt.compare(password, result[0].password, (error, response) => {
                     if (response) {
-
-                        // req.session.user = result;
-                        res.send(result);
+                        req.session.user = result;
                         console.log(req.session.user);
+                        res.send(result);
                     } else {
-                        res.send({ message: "Incorrect Username or Password!" });
+                        res.send({ message: "Incorrect email or Password!" });
                     }
                 })
             } else {
-                res.send({ message: "Please enter Username and Password!" });
+                res.send({ message: "Please use valid email!" });
             }
         }
     );
@@ -215,7 +214,7 @@ app.post("/announcement/create", (req, res) => {
 const port = process.env.PORT || 3001;
 
 
-if(process.env.NODE_ENV === "production"){
+if (process.env.NODE_ENV === "production") {
     app.use(express.static('build'));
     app.get('*', (req, res) => {
         req.sendFile(path.resolve(__dirname, 'build', 'index.html'));
@@ -223,6 +222,6 @@ if(process.env.NODE_ENV === "production"){
 }
 
 app.listen(port, (err) => {
-    if(err) return console.log(err);
-    console.log('running on port: ', port );
+    if (err) return console.log(err);
+    console.log('running on port: ', port);
 })

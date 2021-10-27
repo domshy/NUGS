@@ -30,24 +30,6 @@ function Landingpage() {
   const [loginStatus, setLoginStatus] = useState("");
 
   Axios.defaults.withCredentials = true;
-  const register = () => {
-    Axios.post("http://localhost:3001/register", {
-      student_number: student_numberReg,
-      fullname: fullnameReg,
-      student_gender: genderReg,
-      address: addressReg,
-      contact_no: contactnoReg,
-      email: emailReg,
-      college: collegeReg,
-      password: passwordReg,
-    }).then((response) => {
-      history.push('/');
-      console.log(response);
-
-    })
-  };
-
-  Axios.defaults.withCredentials = true;
   const login = () => {
     Axios.post("http://localhost:3001/login", {
       email: email,
@@ -58,7 +40,9 @@ function Landingpage() {
       } else {
 
         if(response.data[0].role == "student"){
-          history.push("/main");
+          // history.push("/main");
+           console.log(response.data[0].email);
+           
         }else if(response.data[0].role == "guidance associate"){
           history.push("/Mainhome");
           // setLoginStatus(response.data[0].email);
@@ -71,9 +55,8 @@ function Landingpage() {
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {
       if (response.data.loggedIn == true) {
-        setLoginStatus(response.data.students[0].email)
+         setLoginStatus(response.data.user[0].email);
       }
-
     })
   }, [])
 
