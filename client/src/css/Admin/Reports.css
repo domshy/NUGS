@@ -1,0 +1,576 @@
+.reports-wrapper{
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    flex-direction: column;
+}
+
+.reports-name{
+    margin-top: 10vh;
+    width: 100%;
+    text-align: center;
+}
+
+.reports-name h1{
+    font-size: 45px;
+    color: black;
+    text-transform: uppercase;
+}
+
+.reports-colleges{
+    padding: 5px;
+    width: 100%;
+    height: 40vh;
+    text-align: left;
+    align-items: center;
+    justify-items: center;
+}
+
+.colleges-card{
+    height: 190vh;
+    /* background-color: red; */
+}
+
+.colleges-title{
+    text-align: left;
+}
+
+.colleges-title h2{
+    margin-left: 17vw;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.over-all-stats{
+    width: 100%;
+    height: 200vh;
+}
+
+.overview-title{
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-items: center;    
+}
+
+.overview-title h1{
+    text-transform: uppercase;
+    margin-left: 17vw;
+}
+
+.over-all-services{
+    background: whitesmoke;
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-services-chart{
+    background: white;
+    height: auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 6px 7px 7px rgb(0 0 0 / 20%);
+
+}
+
+.overall-services-content{
+    /* background: hotpink; */
+    height: 50vh;
+}
+
+span#over-all-services-name{
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+img#img-services-overall{
+    height: 60vh;
+    width: 100%;
+}
+
+/*good moral*/
+.over-all-goodmoral{
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-goodmoral-chart{
+    background: white;
+    height: auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 6px 7px 7px rgb(0 0 0 / 20%);
+
+}
+
+.overall-goodmoral-content{
+    height: 50vh;
+}
+
+span#over-all-goodmoral-name{
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+img#img-goodmoral-overall{
+    height: 60vh;
+    width: 100%;
+}
+
+/*shifting preference*/
+.over-all-shifting{
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-shifting-chart{
+    /* background: green; */
+    height: auto;
+    padding: 15px;
+
+}
+
+.overall-shifting-content{
+    /* background: hotpink; */
+    height: 50vh;
+}
+
+span#over-all-shifting-name{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#img-shifting-overall{
+    height: 100%;
+    width: 100%;
+}
+
+.over-all-shifting-images{
+    /* background: hotpink; */
+    display: flex;
+    flex-direction: row;
+}
+
+.shifting-over-all{
+    /* background: violet; */
+    width: 30%;
+    padding: 5px;
+}
+
+img#shifting-gay{
+    height: 50vh;
+    width: 100%;
+}
+
+.shifting-types{
+    /* background: yellow; */
+    padding: 5px;
+    width: 70%;
+    margin-left: 3vh;
+}
+
+span#shifting-gay-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+.shifting-types2{
+    margin-top: 5vh;
+    /* background: blue; */
+    padding: 5px;
+}
+
+img#shifting-lesbian{
+    height: 70vh;
+    width: 100%;
+}
+
+span#shifting-lesbian-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#shifting-trans{
+    height: 70vh;
+    width: 100%;
+}
+
+span#shifting-trans-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+
+img#shifting-bisexual{
+    height: 70vh;
+    width: 100%;
+}
+
+span#shifting-bisexual-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+/*gender preference*/
+.over-all-gender{
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-gender-chart{
+    /* background: white; */
+    height: auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 6px 7px 7px rgb(0 0 0 / 20%);
+
+}
+
+span#over-all-gender-name{
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+.over-all-gender-images{
+    /* background: white; */
+    display: flex;
+    flex-direction: row;
+}
+
+.gender-over-all{
+    /* border: 1px solid #ccc; */
+    box-shadow: 6px 7px 7px rgb(0 0 0 / 20%);
+    width: 35%;
+    padding: 5px;
+}
+
+img#img-gender-overall{
+    height: 50vh;
+    width: 100%;
+}
+
+img#gender-gay{
+    height: 50vh;
+    width: 100%;
+}
+
+
+.gender-types2{
+    margin-top: 5vh;
+    /* background: blue; */
+    padding: 5px;
+}
+
+span#gender-gay-label{
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+img#gender-lesbian{
+    height: 70vh;
+    width: 100%;
+}
+
+span#gender-trans-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#gender-trans{
+    height: 70vh;
+    width: 100%;
+}
+
+span#gender-bisexual-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#gender-bisexual{
+    height: 70vh;
+    width: 100%;
+}
+
+
+/*marital status*/
+.over-all-maritalstatus{
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-maritalstatus-chart{
+    /* background: green; */
+    height: auto;
+    padding: 15px;
+
+}
+
+.overall-maritalstatus-content{
+    /* background: hotpink; */
+    height: 50vh;
+}
+
+span#over-all-maritalstatus-name{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+span#maritalstatus-living-together-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#img-maritalstatus-overall{
+    height: 100%;
+    width: 100%;
+}
+
+.over-all-maritalstatus-images{
+    /* background: hotpink; */
+    display: flex;
+    flex-direction: row;
+}
+
+.maritalstatus-over-all{
+    /* background: violet; */
+    width: 35%;
+    padding: 5px;
+}
+
+img#maritalstatus-together{
+    height: 50vh;
+    width: 100%;
+}
+
+.maritalstatus-types2{
+    margin-top: 5vh;
+    /* background: blue; */
+    padding: 5px;
+}
+
+span#maritalstatus-philippines-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#maritalstatus-ph{
+    height: 70vh;
+    width: 100%;
+}
+
+span#maritalstatus-bothabroad-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#maritalstatus-bothabroad{
+    height: 70vh;
+    width: 100%;
+}
+
+span#maritalstatus-oneabroad-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#maritalstatus-oneabroad{
+    height: 70vh;
+    width: 100%;
+}
+
+span#maritalstatus-legally-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#maritalstatus-legally{
+    height: 70vh;
+    width: 100%;
+}
+
+span#maritalstatus-notlegal-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#maritalstatus-notelegal{
+    height: 70vh;
+    width: 100%;
+}
+
+/*shifting */
+.over-all-shifting{
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-shifting-chart{
+    /* background: green; */
+    height: auto;
+    padding: 15px;
+
+}
+
+span#over-all-shifting-name{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+.over-all-shifting-images{
+    /* background: hotpink; */
+    display: flex;
+    flex-direction: row;
+}
+
+.shifting-types{
+    /* background: violet; */
+    width: 30%;
+    padding: 5px;
+}
+
+img#shifting-firstyr{
+    height: 50vh;
+    width: 100%;
+}
+
+.shifting-types{
+    /* background: yellow; */
+    padding: 5px;
+    width: 70%;
+    margin-left: 3vh;
+}
+
+span#shifting-living-together-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+/*transfer */
+.over-all-transfer{
+    /* background: plum; */
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-transfer-chart{
+    /* background: green; */
+    height: auto;
+    padding: 15px;
+
+}
+
+span#over-all-transfer-name{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+.over-all-transfer-images{
+    /* background: hotpink; */
+    display: flex;
+    flex-direction: row;
+}
+
+.transfer-types{
+    /* background: violet; */
+    width: 30%;
+    padding: 5px;
+}
+
+img#transfer-firstyr{
+    height: 50vh;
+    width: 100%;
+}
+
+span#transfer-living-together-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#img-transfer-overall{
+    height: 70vh;
+    width: 100%;
+}
+
+/* loa */
+.over-all-loa{
+    /* background: plum; */
+    width: 83%;
+    margin-left: 16vw;
+    height: auto;
+    padding: 15px;
+}
+
+.over-all-loa-chart{
+    /* background: green; */
+    height: auto;
+    padding: 15px;
+
+}
+
+span#over-all-loa-name{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+.over-all-loa-images{
+    /* background: hotpink; */
+    display: flex;
+    flex-direction: row;
+}
+
+.loa-types{
+    /* background: violet; */
+    width: 30%;
+    padding: 5px;
+}
+
+img#loa-firstyr{
+    height: 50vh;
+    width: 100%;
+}
+
+span#loa-living-together-label{
+    font-weight: bolder;
+    font-size: 22px;
+    /* background: powderblue; */
+}
+
+img#img-loa-overall{
+    height: 70vh;
+    width: 100%;
+}

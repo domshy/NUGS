@@ -1,0 +1,20 @@
+.myprofile-wrapper{
+    background-color: #f0f0f0;
+    display: flex;
+    height: 100vh;
+}
+
+.myprofile-content{
+    height: auto;
+    margin-top: 7vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.myprofile-name{
+    width: 100%;
+    height: auto;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+

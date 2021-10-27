@@ -1,0 +1,208 @@
+.colleges-wrapper{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+
+}
+
+.colleges-contents{
+    padding: 3px;
+    width: auto;
+    margin-left: 30vh;
+}
+
+.colleges-cards1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.colleges-cards1 ul{
+    min-width: 696px;
+	list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+#colleges-items li{
+    display: inline;
+}
+
+
+.coh{
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    margin-left: 5vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #0099ff 0%, #66ccff 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.coa{
+    margin-left: 5vh;
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #00cc00 0%, #00cc66 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.cba{
+    margin-left: 5vh;
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #993333 0%, #ffcc99 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.ccit{
+    margin-left: 5vh;
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #009999 0%, #00ffcc 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.colleges-cards2{
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.colleges-cards2 ul{
+    min-width: 696px;
+	list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+#colleges-items2 li{
+    display: inline;
+}
+
+.cd{
+    margin-left: 5vh;
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #993399 0%, #cc66ff 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.ceas{
+    margin-left: 5vh;
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #990033 0%, #ff9999 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.ce{
+    margin-left: 5vh;
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #ff6600 0%, #ffcc66 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+
+.cthm{
+    margin-left: 5vh;
+    cursor: pointer;
+    width: 33vh;
+    border-radius: 10px;
+    height: 13vh;
+    font-size: 7px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to top right, #3333ff 0%, #6699ff 100%);
+    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
+    box-shadow:       7px 7px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}

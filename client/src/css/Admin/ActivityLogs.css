@@ -1,0 +1,58 @@
+.activitylogs-wrapper{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #dddddd;
+    flex-direction: column;
+}
+
+.activitylog-name{
+    font-weight: bolder;
+    text-align: left;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    height: auto;
+}
+
+.activitylog-name h1{
+    color: black;
+    margin-left: 40vh;
+    font-size: 45px;
+    
+}
+
+.activity-log-table{
+    margin-top: 2vh;
+    background-color: #f2f2f2;
+    width: 70%;
+    height: 71vh;
+    margin-left: 20vh;
+}
+
+.activity-table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.activity-table th,
+.activity-table td{
+    text-align: left;
+    padding: 8px;
+    font-size: 17px;
+}
+
+.activity-table tr:nth-child(even){
+    background-color: #ccc;
+}
+
+
+.activity-table th{
+    background-color: #D4AF37;
+    border-radius: 2px;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+

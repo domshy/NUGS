@@ -1,0 +1,172 @@
+.coah-wrapper{
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    flex-direction: column;
+}
+
+.coah-container{
+    margin-top: 10vh;
+    display: flex;
+    height: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #dddddd;
+    flex-direction: column;
+}
+
+.coah-header{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.coah-header h2{
+    /* background-color: pink; */
+    font-size: 33px;
+    text-transform: uppercase;
+}
+
+#back-icon{
+    margin-left: 40vh;
+    /* background-color: brown; */
+    font-size: 5em;
+}
+
+.coah-overview{
+    margin-top: 5vh;
+    background-color: white;
+    height: 60%;
+    width: 75%;
+    margin-left: 25vh;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.total-college{
+    margin-top: 5vh;
+    /* background-color: green ; */
+    width: 40%;
+    margin-left: -60vh;
+    display: flex;
+    justify-content: left;
+}
+
+.coah-mostservice-graph{
+    width: 90%;
+    height: 100%;
+    padding: 5px;
+}
+
+.coah-mostservice-graph img{
+    height: 100%;
+    width: 100%;
+}
+
+.coah-mostservice-graph2{
+    width: 40%;
+    background-color: salmon;
+}
+
+.coah-mostservice-graph2 img{
+    width: 100%;
+    height: 100%;
+}
+
+.coah-secondbar{
+    margin-top: 7vh;
+    height: 60vh;
+    width: 75%;
+    margin-left: 25vh;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.coah-marital-status{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.coah-marital-status img{
+    height: 100%;
+    width: 100%;
+}
+
+.coah-shifting-reason{
+    width: 70%;
+    margin-left: 5vh;
+    border-radius: 5px;
+}
+
+.coah-shifting-reason img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.coah-thirdbar{
+    margin-top: 7vh;
+    height: 70vh;
+    width: 75%;
+    margin-left: 25vh;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.coah-smartchat{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.coah-smartchat img{
+    width: 100%;
+    height: 100%;
+}
+
+.coah-fourthbar{
+    margin-top: 7vh;
+    height: 70vh;
+    width: 75%;
+    margin-left: 25vh;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.loa-reason{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.loa-reason img{
+    width: 100%;
+    height: 100%;
+}
+
+.coah-transfer{
+    width: 70%;
+    margin-left: 5vh;
+    border-radius: 5px;
+}
