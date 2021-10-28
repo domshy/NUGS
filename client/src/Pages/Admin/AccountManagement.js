@@ -48,7 +48,7 @@ export default function AccountManagement() {
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <select id="guidance_gender">
                                 <option>Select Gender</option>
-                                <option>Femle</option>
+                                <option>Female</option>
                                 <option>Male</option>
                             </select>
                         </div>

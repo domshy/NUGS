@@ -14,6 +14,9 @@ const session = require("express-session");
 
 const app = express();
 const bcrypt = require("bcrypt");
+const { resourceLimits } = require("worker_threads");
+const { Router } = require("express");
+const { nextTick } = require("process");
 const saltRounds = 10;
 
 
@@ -79,6 +82,27 @@ app.post('/register', (req, res) => {
     });
 });
 
+const verifyJWT = (req, res, next) => {
+    const token = req.headers["x-access-token"]
+
+    if (!token) {
+        res.send("yo give us some token");
+    } else {
+        jwt.verify(token, "jwtSecret", (err, decoded) => {
+            if (err) {
+                res.json({ auth: false, message: "u failed to auth" });
+            } else {
+                req.userId = decoded.id;
+                next();
+            }
+        })
+    }
+}
+
+
+app.get('/isUserAuth', verifyJWT, (req, res) => {
+    res.send("yo u are auth!");
+})
 
 app.get("/login", (req, res) => {
     if (req.session.user) {
@@ -103,15 +127,24 @@ app.post('/login', async (req, res) => {
             if (result.length > 0) {
                 bcrypt.compare(password, result[0].password, (error, response) => {
                     if (response) {
+
+                        const id = result[0].id
+                        const token = jwt.sign({ id }, "jwtSecret", {
+                            expiresIn: 300, //5mns
+                        })
+
                         req.session.user = result;
-                        console.log(req.session.user);
-                        res.send(result);
+                    
+                        res.json({ auth: true, token: token, result: result, message: "hurray" });
+                       
+
                     } else {
-                        res.send({ message: "Incorrect email or Password!" });
+                        res.json({ auth: false, message: "Incorrect email or Password!" });
                     }
                 })
             } else {
-                res.send({ message: "Please use valid email!" });
+                // res.send({ message: "Please use valid email!" });
+                res.json({ auth: false, message: "Please use valid email!" });
             }
         }
     );

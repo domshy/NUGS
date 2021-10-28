@@ -27,7 +27,9 @@ function Landingpage() {
 
   let history = useHistory();
 
-  const [loginStatus, setLoginStatus] = useState("");
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  const [loginmsg, setLoginMsg] = useState("");
 
   Axios.defaults.withCredentials = true;
   const login = () => {
@@ -35,22 +37,32 @@ function Landingpage() {
       email: email,
       password: password,
     }).then((response) => {
-      if (response.data.message) {
-        setLoginStatus(response.data.message);
+      if (!response.data.auth) {
+        setLoginStatus(false);
+        setLoginMsg(response.data.message);
       } else {
-
-        if(response.data[0].role == "student"){
-          // history.push("/main");
-           console.log(response.data[0].email);
-           
-        }else if(response.data[0].role == "guidance associate"){
-          history.push("/Mainhome");
-          // setLoginStatus(response.data[0].email);
-        }
-        
+      
+          localStorage.setItem("token", response.data.token);
+          setLoginStatus(true);
+          // console.log(response.data[0].email);
+          console.log(response.data.message);
+          setLoginMsg("student");
+          console.log(response)
+          history.push("/main");
       }
     });
   };
+
+  const userAuthenticated = () => {
+    Axios.get("http://localhost:3001/isUserAuth", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    }).then((response) => {
+      console.log(response);
+      login();
+    });
+  }
 
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {
@@ -95,17 +107,19 @@ function Landingpage() {
             </Link>
           </div>
           <div className="status">
-            <h1>{loginStatus}</h1>
+            <h1>{loginmsg}</h1>
           </div>
           <div className="login-btn">
             <button style={{ backgroundColor: '#000336', border: '#000336', color: 'white' }}
-              onClick={login}>Sign In</button>
+              onClick={userAuthenticated}>Sign In</button>
           </div>
           <div className="signup-link">
             <Link to="/register">
               <div id="register-link">Doesn't have an Account? SignUp</div>
             </Link>
           </div>
+          
+        
 
         </div>
       </div>
