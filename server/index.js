@@ -1,18 +1,23 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+const app = express();
 
-const path = require('path');
+// const path = require('path');
 
+// var options = {
+//     index: 'index.html'
+//     };
+//     server.use('/', express.static('/home/domingokd/https://nuguidancesystem.azurewebsites.net', options));
+//     server.listen(process.env.PORT);
 
 const jwt = require('jsonwebtoken');
+
 
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-
-const app = express();
 const bcrypt = require("bcrypt");
 const { resourceLimits } = require("worker_threads");
 const { Router } = require("express");

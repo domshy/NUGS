@@ -9,6 +9,7 @@ import { FiSend } from 'react-icons/fi';
 
 
 function Main() {
+
   const [chatbot, setChatbot] = useState(false);
 
   const [announcement_title, setAnnouncementTitle] = useState("");

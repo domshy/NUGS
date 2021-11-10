@@ -91,20 +91,13 @@ function App() {
 
         {/* Student */}
         <Route path="/main" component={Main} />
-
-        {/* <Route path="/home" exact component={Home} /> */}
         <Route exact path="/aboutus" component={Aboutus} />
-
         <Route path="/services" exact component={Services} />
-
         <Route path="/services/goodmoral/request" exact component={GoodMoralReq} />
         <Route path="/services/goodmoral" exact component={GoodMoral} />
         <Route path="/services/goodmoral/payment" exact component={GoodMoralPayment} />
-
         <Route path="/services/studentenrollment" exact component={Enrollment} />
         <Route exact path="/enrollment/enrollmentstudentform" component={EnrollmentForm} />
-
-
         <Route path="/services/interview" exact component={Interview} />
         <Route exact path="/interview/requestinterview" component={InterviewForm} />
 
