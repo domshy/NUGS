@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom'
 import { BsDownload } from 'react-icons/bs'
 
 
+import Header from '../../../components/Admin/Header_admin'
+import Navbar from '../../../components/Admin/Navbar_admin'
 function Counselled() {
     return (
         <div className="submittedsii-wrapper">
+            <Header />
+            <Navbar />
             <div className="submittedsii-header">
                 <div className="submitted-back-btn">
                     <Link to="/dashboard">
@@ -20,8 +24,8 @@ function Counselled() {
             </div>
             <div className="submittedsii-container">
                 <div className="submittedsii-content-header">
-                    <h3 style={{color: 'white', textTransform: 'uppercase', fontSize: '20px'}}>
-                    List of Student who has been counselled</h3>
+                    <h3 style={{ color: 'white', textTransform: 'uppercase', fontSize: '20px' }}>
+                        List of Student who has been counselled</h3>
                     <span id="download-icon"><BsDownload size='2em' /></span>
                 </div>
                 <div className="submittedsii-contents">
@@ -31,12 +35,12 @@ function Counselled() {
                         </tr>
                         <tr>
                             <td>2020-0217822</td>
-                            
+
 
                         </tr>
                         <tr>
                             <td>2020-908742</td>
-                            
+
                         </tr>
                         <tr>
                             <td>2020-1092456</td>

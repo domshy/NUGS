@@ -147,3 +147,11 @@ button#counseling-submitBtn:hover{
     box-shadow:  0 0 5px 1px #ccc;
     transition: .5s;
 }
+
+.smartchat-error{
+    color: red;
+}
+
+.smartchat-spacer{
+    height: 20vh;
+}

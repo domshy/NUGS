@@ -7,8 +7,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    margin-top: 10vh;
+    /* position: fixed; */
+    margin-top: 20vh;
     transition: 850ms;
     box-shadow: inset -10px 0 5px -8px #888;
     padding: 30px;

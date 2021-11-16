@@ -19,7 +19,7 @@ function Header_admin() {
                     <div className="header_item1">
                         <ul>
                             <IconContext.Provider value={{ size: '2em' }}>
-                                <li id="display-picture1"><a href="/account"><img src={ash} /></a></li>
+                                {/* <li id="display-picture1"><a href="/account"><img src={ash} /></a></li> */}
                                 <li><a href="/"><RiNotification2Fill /></a></li>
                                 <li><a href="/aboutus"><IoAlertCircleOutline /></a></li>
                                 <li><a href="/"><IoExitOutline /></a></li>

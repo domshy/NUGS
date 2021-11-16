@@ -58,7 +58,6 @@ function GoodMoralReq() {
                                                 </div>
                                             </Link>
                                         </div>
-
                                     )
                                 })}
                             </div>

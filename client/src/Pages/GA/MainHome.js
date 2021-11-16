@@ -6,6 +6,8 @@ import { HiOutlinePencilAlt } from 'react-icons/hi'
 import { FaTrash } from 'react-icons/fa'
 import Header from '../../components/GA/Header_ga'
 import Navbar from '../../components/GA/Navbar_ga'
+import DashBoardList from '../../components/Admin/DashBoardList';
+import TotalList from './TotalList';
 
 
 
@@ -31,11 +33,12 @@ function MainHome() {
         <div className="main-home-user-name">
           <h1>Welcome, Archie</h1>
         </div>
-        <div className="main-top-section">
-          <div>
-            pinapalagay ni sir archie
-          </div>
-        </div>
+ 
+          <div className="mainhome-totals">
+            <div className="mainhome-cards">
+              <TotalList />
+            </div>
+            </div>
 
         <div className="main-home-contents">
           <h1 id="announcement-main">Announcements</h1>

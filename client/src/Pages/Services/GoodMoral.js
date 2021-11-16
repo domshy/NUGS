@@ -22,7 +22,7 @@ function GoodMoral() {
             document.querySelector(".confirm-bg").style.display = "none"
             document.querySelector(".container").style.display = "none"
             setSubmitTask(false)
-            history.push('/');
+            history.push('/services/goodmoral/request');
         }
     }
 
@@ -55,16 +55,17 @@ function GoodMoral() {
     const [number_copy_errors, setNumberCopyErrors] = useState("");
     const [special_instruction_errors, setSpecialInstructErrors] = useState("");
 
-
-
     const [goodmoralList, setGoodmoralList] = useState([]);
 
 
     useEffect(() => {
         Axios.get('http://localhost:3001/services/goodmoral/get').then((response) => {
-            setGoodmoralList(response.data)
+            setGoodmoralList(response.data);
+        }, 
+        {
+            headers: sessionStorage.getItem("token")
         })
-    }, [])
+    })
 
     const submitGoodmoralRequest = () => {
         Axios.post("http://localhost:3001/services/goodmoral/create", {
@@ -79,6 +80,7 @@ function GoodMoral() {
             purpose_req: purpose_req,
             number_copy: number_copy,
             special_instruction: special_instruction,
+
         }]);
     };
 
@@ -193,9 +195,7 @@ function GoodMoral() {
                             </div>
                         </div>
                     </form>
-                    <div>
-                        &nbsp;
-                    </div>
+                    <div>&nbsp;</div>
                 </div>
             </div>
         </div>

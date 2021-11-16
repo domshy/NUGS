@@ -163,3 +163,7 @@ h2.consent-label {
     box-shadow:  0 0 5px 1px #ccc;
     transition: .5s;
 }
+
+.consent-error{
+    color: red;
+}

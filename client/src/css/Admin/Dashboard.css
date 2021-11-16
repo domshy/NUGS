@@ -1,10 +1,10 @@
 .dashboard-wrapper{
     display: flex;
     height: auto;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     background-color: #dddddd;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .dashboard-header{
@@ -32,7 +32,7 @@
     margin-top: -40vw;
     height: 140vh;
     width: 64%;
-    margin-left: -5vh;
+    margin-left: 5vh;
     padding: 5px;
 }
 

@@ -1,16 +1,13 @@
 .editprofile_ga-wrapper{
+    background-color: #f0f0f0;
     display: flex;
     height: auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #dddddd;
-    flex-direction: column;
 }
 
 .editprofile_ga-name{
     width: 100%;
     height: 8%;
+    margin-top: 10vh;
     text-align: center;
     display: flex;
     align-items: center;
@@ -21,8 +18,8 @@
 }
 
 .editprofile_ga-name h1{
-    margin-left: -40vw;
-    margin-top: 13vh;
+    margin-left: -60vw;
+    margin-top: 5vh;
 }
 .editprofile_ga-student-name input[type="text"],
 .editprofile_ga-student-name input[type="password"]{
@@ -43,10 +40,12 @@
 
 .editprofile_ga-container{
     background-color: #D3D3D3;
-    height: 90vh;
+    height: 100vh;
     width: 80%;
     margin-left: 25vh;
     border-radius: 10px;
+    margin-top: 5vh;
+    padding: 20px;
 }
 
 .student-editprofile_ga-pic{
@@ -81,14 +80,14 @@
 
 .editprofile_ga-btns{
     width: 80%;
-    margin-top: -43vh;
+    margin-top: -57vh;
 }
 
 .editprofile_ga-edit-btn{
     width: 10%;
     height: 6vh;
     border-radius: 5px;
-    margin-left: 30vh;
+    margin-left: 25vh;
     margin-top: -6vh;
 }
 
@@ -119,7 +118,7 @@
     width: 10%;
     height: 6vh;
     border-radius: 5px;
-    margin-left: 15vh;
+    margin-left: 10vh;
 }
 
 .editprofile_ga-cancel button{

@@ -77,6 +77,9 @@ import ViewGradForm from './Pages/Admin/TotalForms/ViewGradForm';
 import ViewFirstTimer from './Pages/Admin/TotalForms/ViewFirstTimer';
 
 
+import TermsAndCondition from './Pages/Terms';
+
+
 const isLoggedIn = () => {
   return localStorage.getItem('TOKEN_KEY') != null;
 };
@@ -89,6 +92,8 @@ function App() {
         <Route path="/" exact component={Landingpage} />
         <Route path="/register" component={Register} />
 
+        <Route path="/TermsAndCondition" component={TermsAndCondition} />
+      
         {/* Student */}
         <Route path="/main" component={Main} />
         <Route exact path="/aboutus" component={Aboutus} />

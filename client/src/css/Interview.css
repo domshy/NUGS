@@ -75,16 +75,47 @@
 
 
 .interview-list{
-    margin-top: 3vh;
-    height: 53vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+    margin-top: 8vh;
+    height: 50vh;
+    border-radius: 5px;
+    overflow-y: scroll;
+    padding: 5px;
+    border: 1px solid #ccc;
 }
 
+.interview-list-contents{
+    height: auto;
+    width: 100%;
+    padding: 1px;
+}
 
-.interview-space{
-    background-color: red;
-    height: 100vh;
+.interview-list-container{
+    cursor: pointer;
+    color: black;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.interview-list-status{
+    padding: 5px;
+    background-color: #ffdead;
+    border-radius: 5px;
+    margin-left: 3vh;
+}
+
+.interview-list-status h3{
+    text-transform: uppercase;
+    color: #ffae42;
+}
+
+.interview-list-name{
+    margin-left: 3vh;
+}
+
+.interview-list-container:hover{
+    height: 63px;
+    box-shadow: 0 0 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

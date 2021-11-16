@@ -1,4 +1,4 @@
-.dashboardlist-wrapper{
+.totallist-wrapper{
     display: flex;
     width: 100%;
     text-align: center;
@@ -7,13 +7,12 @@
 
 }
 
-.dashbaordlist-contents{
+.totallist-contents{
     padding: 3px;
     width: auto;
-    margin-left: -20vh;
 }
 
-.dashboardlist-cards{
+.totallist-cards{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -21,21 +20,20 @@
     text-align: center;
 }
 
-.dashboardlist-cards ul{
+.totallist-cards ul{
     min-width: 696px;
 	list-style: none;
     display: flex;
     flex-direction: row;
 }
 
-#dashboardlist-items li{
+#totallist-items li{
     display: inline;
 }
 
 
 .total-pending{
     cursor: pointer;
-    margin-left: 5vh;
     width: 27vh;
     border-radius: 10px;
     height: 13vh;
@@ -114,7 +112,7 @@ span#total-sii{
 }
 
 .total-grad span{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
 }
 

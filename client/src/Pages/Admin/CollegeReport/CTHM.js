@@ -3,6 +3,8 @@ import '../../../css/Admin/College/COAH.css'
 import { Link } from 'react-router-dom'
 import { IoChevronBackOutline } from 'react-icons/io5'
 import { BiTimeFive } from 'react-icons/bi'
+import Header from '../../../components/Admin/Header_admin'
+import Navbar from '../../../components/Admin/Navbar_admin'
 
 
 //images
@@ -15,6 +17,8 @@ import SmartChat from '../../../images/smartchat/smartchat gaano karami gumamit 
 function CTHM() {
     return (
         <div className="coah-wrapper">
+            <Header />
+            <Navbar />
             <div className="coah-container">
                 <div className="coah-header">
                     <div className="coah-back">
@@ -30,7 +34,7 @@ function CTHM() {
                     <div className="total-college-cards">
                         <div className="total-college-pending">
                             <div className="dashboardlist-cards">
-                            <ul id="dashboardlist-items">
+                                <ul id="dashboardlist-items">
                                     <li><a href="/pendingrequests"><div className="total-pending">
                                         <h3>5</h3>
                                         <span>pending requests</span>

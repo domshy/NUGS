@@ -1,32 +1,44 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import '../css/Profile.css';
 import { Link } from 'react-router-dom'
-import shia from '../images/shia.jpg'
+import { MdAdd, MdNavigateNext } from 'react-icons/md'
+import '../css/Profile.css';
+import arri from '../images/arri.jpg'
 
 import Header from '../components/Header'
 import Navbar from '../components/Navbar';
 
 function Profile() {
-
-const [student_number, setStudentNumber] = useState("");
-const [fullname, setFullname] = useState("");
-const [student_gender, setStudentGender] = useState("");
-const [contact_no, setContacno] = useState("");
-const [email, setEmail] = useState("");
-const [college, setCollege] = useState("");
-
-const [profiledetails, setProfileDetails] = useState([]);
-
     return (
         <div className="profile-wrapper">
             <Header />
             <Navbar />
-            <div className="profile-name">
-                <h1>USER PROFILE</h1>
-            </div>
-            <div className="profile-container">
-          
+            <div>
+                <div className="profile-name">
+                    <h1>USER PROFILE</h1>
+                </div>
+                <div className="profile-container">
+                    <div className="profile-contents">
+                        <div className="student-profile-pic">
+                            <img src={arri} />
+                        </div>
+                        <div className="profile-student-name">
+                            <h1>Arriane Ysabelle Joaquin </h1>
+                        </div>
+                        <div className="profile-user-details">
+                            <p>2018375010</p>
+                            <p>Female</p>
+                            <p>Project 8, Quezon City</p>
+                            <p>joaquin@students.national-u.edu.ph</p>
+                            <p>College of Computing and Information Technology</p>
+                        </div>
+                        <div className="profile-edit-btn">
+                            <Link to="profile/editprofile">
+                                <button>Edit Profile</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

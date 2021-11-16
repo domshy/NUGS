@@ -44,13 +44,13 @@
 
 .shifting-divs{
     font-size: 17px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: -20vh;
+    margin-top: 3vh;
 }
 
 .shift-label{
     text-align: left;
-    margin-left: 30vh;
+    margin-left: 23vh;
     font-size: 16px;
 }
 
@@ -61,6 +61,7 @@
     border: 1px solid #aaa;
     padding: 10px;
     margin-top: 2vh;
+    margin-left: -8vh;
 }
 
 .shifting-divs select{
@@ -70,27 +71,7 @@
     border: 1px solid #aaa;
     margin-top: 2vh;
     padding: 10px;
-}
-
-.shifting-divs textarea{
-    height: 40px;
-    width: 70%;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-    padding: 10px;
-    margin-top: 2vh;
-}
-
-
-span.text-danger{
-    color: red;
-    margin-right: 7vw;
-    font-weight: bold;
-}
-
-span.text-danger-icon {
-    font-size: 30px;
-    margin-left: 5px;
+    margin-left: -8vh;
 }
 
 .shifting-submit-btns{
@@ -155,4 +136,12 @@ button#shifting-submitBtn:hover{
     color: white;
     box-shadow:  0 0 5px 1px #ccc;
     transition: .5s;
+}
+
+.shifting-error{
+    color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: end;
+    width: 80%;
 }

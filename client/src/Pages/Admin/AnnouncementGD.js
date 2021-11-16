@@ -10,70 +10,77 @@ import nuok from '../../images/image2.png'
 import father from '../../images/image3.jpg'
 import pride from '../../images/pride.png'
 
+import Header from '../../components/Admin/Header_admin'
+import Navbar from '../../components/Admin/Navbar_admin'
+
 
 function AnnouncementGD() {
 
-    // const [delTask, setDelTask] = useState(false)
+    const [delTask, setDelTask] = useState(false)
 
-    // const handleConfirmationBox = () => {
-    //     if (!delTask) {
-    //         document.querySelector(".confirm-bg").style.display = "flex"
-    //         document.querySelector(".container").style.display = "flex"
-    //         setDelTask(true)
-    //         submitAnnouncement()
-    //     } else {
-    //         document.querySelector(".confirm-bg").style.display = "none"
-    //         document.querySelector(".container").style.display = "none"
-    //         setDelTask(false)
-    //         history.push('/mainhome');
-    //     }
-    // }
+    const handleConfirmationBox = () => {
+        if (!delTask) {
+            document.querySelector(".confirm-bg").style.display = "flex"
+            document.querySelector(".container").style.display = "flex"
+            setDelTask(true);
+            submitAnnouncement();
+        } else {
+            document.querySelector(".confirm-bg").style.display = "none"
+            document.querySelector(".container").style.display = "none"
+            setDelTask(false);
+            history.push('/dashboard');
+        }
+    }
 
-    // const isAnnouncementgdValid = () => {
-    //     if (!announcementgd_title || announcementgd_title.trim() === "") {
-    //         setAnnouncementgdTitleErrors("*This field cannot be empty!");
-    //     } else if (!announcementgd_description || announcementgd_description.trim() === "") {
-    //         setAnnouncementgdDescriptionErrors("*This field cannot be empty!");
-    //     } else {
-    //         setAnnouncementgdTitleErrors("");
-    //         setAnnouncementgdDescriptionErrors("")
-    //         handleConfirmationBox();
-    //     }
+    const isAnnouncementValid = () => {
+        if (!announcement_title || announcement_title.trim() === "") {
+            setAnnouncementTitleErrors("*This field cannot be empty!");
+        } else if (!announcement_description || announcement_description.trim() === "") {
+            setAnnouncementDescriptionErrors("*This field cannot be empty!");
+        } else {
+            setAnnouncementTitleErrors("");
+            setAnnouncementDescriptionErrors("")
+            handleConfirmationBox();
+        }
 
-    // }
+    }
 
-    // let history = useHistory();
-    // const [announcementgd_title, setAnnouncementgdTitle] = useState("");
-    // const [announcementgd_description, setAnnouncementgdDescription] = useState("");
-    // const [announcementgd_title_errors, setAnnouncementgdTitleErrors] = useState("");
-    // const [announcementgd_description_errors, setAnnouncementgdDescriptionErrors] = useState("");
-    // const [announcementList, setAnnouncementList] = useState([]);
+    let history = useHistory();
+    const [announcement_title, setAnnouncementTitle] = useState("");
+    const [announcement_description, setAnnouncementDescription] = useState("");
 
+    const [announcement_title_errors, setAnnouncementTitleErrors] = useState("");
+    const [announcement_description_errors, setAnnouncementDescriptionErrors] = useState("");
 
-    // useEffect(() => {
-    //     Axios.get('http://localhost:3001/announcement/get').then((response) => {
-    //         setAnnouncementList(response.data)
-    //     })
-    // }, [])
+    const [announcementList, setAnnouncementList] = useState([]);
 
 
+    useEffect(() => {
+        Axios.get('http://localhost:3001/announcement/get').then((response) => {
+            setAnnouncementList(response.data)
+        })
+    }, [])
 
-    // const submitAnnouncement = () => {
-    //     Axios.post("http://localhost:3001/announcement/create", {
-    //         announcementgd_title: announcementgd_title,
-    //         announcementgd_description: announcementgd_description,
 
-    //     });
 
-    //     <Link to="/mainhome" />
-    //     setAnnouncementList([...announcementList, {
-    //         announcementgd_title: announcementgd_title,
-    //         announcementgd_description: announcementgd_description
-    //     }]);
-    // };
+    const submitAnnouncement = () => {
+        Axios.post("http://localhost:3001/announcement/create", {
+            announcement_title: announcement_title,
+            announcement_description: announcement_description,
+
+        });
+
+        <Link to="/mainhome" />
+        setAnnouncementList([...announcementList, {
+            announcement_title: announcement_title,
+            announcement_description: announcement_description
+        }]);
+    };
 
     return (
         <div className="announcementgd-wrapper">
+            <Header />
+            <Navbar />
             <div className="announcementgd-holder">
                 <div className="announcementgd-name">
                     <h1>announcement</h1>
@@ -87,31 +94,31 @@ function AnnouncementGD() {
                             <input
                                 type="text"
                                 placeholder="Title"
-                                name="announcementgd_title"
-                                // value={announcementgd_title}
-                                id="announcementgd_title"
-                            // onChange={(e) => {
-                            //     setAnnouncementgdTitle(e.target.value)
-                            // }}
+                                name="announcement_title"
+                                value={announcement_title}
+                                id="announcement_title"
+                                onChange={(e) => {
+                                    setAnnouncementTitle(e.target.value)
+                                }}
                             />
                         </div>
-                        {/* <span className="announcementgd-error">{announcementgd_title_errors}</span> */}
+                        <span className="announcementgd-error">{announcement_title_errors}</span>
                         <div className="announcementgd-desc">
                             <h3>Description</h3>
                             <textarea
-                                name="announcementgd_description"
-                            // value={announcementgd_description}
-                            id="announcementgd_description"
-                            // placeholder="Description"
-                            // onChange={(e) => {
-                            //     setAnnouncementgdDescription(e.target.value)
-                            // }}
+                                name="announcement_description"
+                                value={announcement_description}
+                                id="announcement_description"
+                                placeholder="Description"
+                                onChange={(e) => {
+                                    setAnnouncementDescription(e.target.value)
+                                }}
                             />/
                         </div>
-                        {/* <span className="announcementgd-error">{announcementgd_description_errors}</span> */}
+                        <span className="announcementgd-error">{announcement_description_errors}</span>
 
                         {/* pop up */}
-                        {/* <div className="container">
+                        <div className="container">
                             <div className="popup-announcementgd-header"></div>
                             <div className="confirmation-text">
                                 <span id="announcementgd-check"><FaCheck color='green' size='3em' /></span>
@@ -129,8 +136,9 @@ function AnnouncementGD() {
                         <div
                             className="confirm-bg">
                             onClick={() => handleConfirmationBox()}
-                        </div> */}
+                        </div>
                         <button
+                            onClick={() => { isAnnouncementValid() }}
                             className="delete-button">
                             Publish
                         </button>
@@ -138,57 +146,25 @@ function AnnouncementGD() {
                     </div>
                     <div className="view-announcements">
                         <div className="view-announcement-cards">
-                            <div className="view-announcement1">
-                                <div className="view-announcement1-header">
-                                    <h1>Happy Father's Day!</h1>
-                                </div>
-                                <div className="view-announcement1-body">
-                                    <img src={father} />
-                                    <br />
-                                    To our number one supporters who come in different names –
-                                    we may call them tatay, papa, dad, daddy and even our lolos,
-                                    titos, and moms who are also dads – Happy Father's Day!
-                                    The world is a better place because you are all in it. 💙
-                                </div>
-                            </div>
-                            <div className="view-announcement2">
-                                <div className="view-announcement2-header">
-                                    <h1>Maligayang Araw ng Kalayaan!</h1>
-                                </div>
-                                <div className="view-announcement2-body">
-                                    <img src={kalayaan} />
-                                    <br />
-                                    Maligayang Araw ng Kalayaan!
-                                </div>
-                            </div>
-                            <div className="view-announcement3">
-                                <div className="view-announcement3-header">
-                                    <h1>NU OK: Online kamustahan</h1>
-                                </div>
-                                <div className="view-announcement3-body">
-                                    <img src={nuok} />
-                                    <br />
-                                    This coming week we will have our Online Kumustahan sessions where we can openly share our thoughts and concerns during our classes!
-                                    Let us use this time to reflect on the things we think we need to address, so that we can have a better learning experience during the rest of the term.
-                                </div>
-                            </div>
-                            <div className="view-announcement2">
-                                <div className="view-announcement4-header">
-                                    <h1>Happy Pride Month!</h1>
-                                </div>
-                                <div className="view-announcement4-body">
-                                    <img src={pride} />
-                                    <br />
-                                    Hope will never be silent again. Together we stand! Happy Pride, mga mahal! 🌈✨
-                                </div>
-                            </div>
+
+                            {announcementList.map((value) => {
+                                return (
+                                    <div className="view-announcement1">
+                                        <div className="view-announcement1-header">
+                                            <h1>{value.announcement_title}</h1>
+                                        </div>
+                                        
+                                        <div className="view-announcement1-body">
+                                            {value.announcement_description}
+                                        </div>
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
-
                 </div>
+
             </div>
-
-
         </div>
     )
 }

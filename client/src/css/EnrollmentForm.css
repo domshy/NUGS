@@ -1,11 +1,4 @@
 .enrollment-form-wrapper{
-    /* display: flex;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #dddddd;
-     */
     display: flex;
     height: auto;
     background-color: white;
@@ -258,4 +251,8 @@ button#enrollment-submitBtn:hover{
     border: none;
     box-shadow:  0 0 3px 5px #ccc;
     transition: .3s;
+}
+
+.enrollment-error{
+    color: red;
 }

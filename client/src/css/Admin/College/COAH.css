@@ -1,10 +1,7 @@
 .coah-wrapper{
+    background-color: #dddddd;
     display: flex;
     height: auto;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
-    flex-direction: column;
 }
 
 .coah-container{
@@ -31,20 +28,21 @@
     /* background-color: pink; */
     font-size: 33px;
     text-transform: uppercase;
+    margin-top: 13vh;
 }
 
 #back-icon{
-    margin-left: 40vh;
+    margin-left: 5vh;
+    margin-top: 15vh;
     /* background-color: brown; */
     font-size: 5em;
 }
 
 .coah-overview{
-    margin-top: 5vh;
+    margin-top: 15vh;
     background-color: white;
     height: 60%;
     width: 75%;
-    margin-left: 25vh;
     padding: 15px;
     display: flex;
     flex-direction: row;
@@ -52,10 +50,10 @@
 }
 
 .total-college{
-    margin-top: 5vh;
+    margin-top: 10vh;
     /* background-color: green ; */
     width: 40%;
-    margin-left: -60vh;
+    margin-left: -100vh;
     display: flex;
     justify-content: left;
 }
@@ -85,7 +83,7 @@
     margin-top: 7vh;
     height: 60vh;
     width: 75%;
-    margin-left: 25vh;
+    /* margin-left: 25vh; */
     padding: 15px;
     display: flex;
     flex-direction: row;
@@ -107,7 +105,7 @@
 
 .coah-shifting-reason{
     width: 70%;
-    margin-left: 5vh;
+    /* margin-left: 5vh; */
     border-radius: 5px;
 }
 
@@ -121,7 +119,7 @@
     margin-top: 7vh;
     height: 70vh;
     width: 75%;
-    margin-left: 25vh;
+    /* margin-left: 25vh; */
     padding: 15px;
     display: flex;
     flex-direction: row;
@@ -145,7 +143,7 @@
     margin-top: 7vh;
     height: 70vh;
     width: 75%;
-    margin-left: 25vh;
+    /* margin-left: 25vh; */
     padding: 15px;
     display: flex;
     flex-direction: row;

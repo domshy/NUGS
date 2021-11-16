@@ -1,6 +1,6 @@
 .announcementgd-wrapper{
     display: flex;
-    height: 100vh;
+    height: auto;
     align-items: center;
     justify-content: center;
     background-color: #dddddd;    
@@ -32,7 +32,6 @@
     height: 68vh;
     border-radius: 7px;
     margin-top: 5vh;
-    margin-left: 35vh;
     display: flex;
     flex-direction: row;
     
@@ -206,6 +205,7 @@ p#announcementgd-context{
     border-radius: 5px;
     align-items: center;
     text-align: center;
+    margin-top: 5vh;
 }
 
 .view-announcement1-body{
@@ -221,98 +221,3 @@ p#announcementgd-context{
     -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
     box-shadow:       5px 12px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 } 
-
-.view-announcement1-body img{
-  height: 30vh;
-  width: 40%;
-  margin-left: 20vh;
-
-}
-
-.view-announcement2-header{
-    background-color: #D4AF37;
-    border-radius: 5px;
-    margin-top: 3vh;
-    align-items: center;
-    text-align: center;
-}
-
-.view-announcement2-body{
-    background-color: white;
-    height: 30vh;
-    font-weight: 500;
-    overflow-x: hidden;
-    text-align: left;
-    overflow-y: auto;
-    text-align:justify; 
-    padding: 20px;
-    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
-    box-shadow:       5px 12px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-} 
-
-.view-announcement2-body img{
-  height: 30vh;
-  width: 40%;
-  margin-left: 20vh;
-
-}
-
-.view-announcement3-header{
-    background-color: #D4AF37;
-    border-radius: 5px;
-    margin-top: 3vh;
-    align-items: center;
-    text-align: center;
-}
-
-.view-announcement3-body{
-    background-color: white;
-    height: 30vh;
-    padding: 20px;
-    font-weight: 500;
-    overflow-x: hidden;
-    text-align: left;
-    overflow-y: auto;
-    text-align:justify; 
-    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
-    box-shadow:       5px 12px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-} 
-
-.view-announcement3-body img{
-  height: 30vh;
-  width: 40%;
-  margin-left: 20vh;
-
-}
-
-.view-announcement4-header{
-    background-color: #D4AF37;
-    border-radius: 5px;
-    margin-top: 3vh;
-    text-align: center;
-    
-}
-
-.view-announcement4-body{
-    background-color: white;
-    height: 30vh;
-    padding: 20px;
-    font-weight: 500;
-    overflow-x: hidden;
-    text-align: left;
-    overflow-y: auto;
-    text-align:justify; 
-    padding: 5x;
-    -webkit-box-shadow: 2px 12px 7px rgb(0 0 0 / 50%);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:   12px 12px 7px rgb(0 0 0 / 50%); /* Firefox 3.5 - 3.6 */
-    box-shadow:       5px 12px 7px rgb(0 0 0 / 50%); /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-} 
-
-.view-announcement4-body img{
-  height: 30vh;
-  width: 40%;
-  margin-left: 20vh;
-
-}

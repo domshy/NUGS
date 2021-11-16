@@ -1,7 +1,7 @@
 .header1{
     position: fixed;
     top: 0;
-    left: 0;
+    margin-left: 0;
     width: 100%;
     background: #000336;
     height: 70px;
@@ -63,9 +63,9 @@
     size: 2em;
 }
 
-#display-picture img{
-    height: 30px;
-    width: 30px;
+img#display-picture {
+    height: 10px;
+    width: 10px;
     border-radius: 50px;
     border: 2px solid #ccc;
 }

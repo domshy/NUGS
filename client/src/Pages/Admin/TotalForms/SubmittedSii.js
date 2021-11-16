@@ -4,10 +4,13 @@ import { IoChevronBackOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import { BsDownload } from 'react-icons/bs'
 
-
+import Header from '../../../components/Admin/Header_admin'
+import Navbar from '../../../components/Admin/Navbar_admin'
 function SubmittedSii() {
     return (
         <div className="submittedsii-wrapper">
+            <Header />
+            <Navbar />
             <div className="submittedsii-header">
                 <div className="submitted-back-btn">
                     <Link to="/dashboard">
@@ -60,47 +63,47 @@ function SubmittedSii() {
                         </tr>
                         <tr>
                             <td>2020-12234</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-55569</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-9864576</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-19921</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-56678</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-12234</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-55569</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-9864576</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
                         <tr>
                             <td>2020-19921</td>
-                             <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
+                            <td><Link to="/dashboard/viewsubmittedsii">View</Link></td>
 
                         </tr>
 

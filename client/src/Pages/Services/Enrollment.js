@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MdAdd } from 'react-icons/md'
+import { MdAdd, MdNavigateNext } from 'react-icons/md'
+import Axios from 'axios';
 import '../../css/Enrollment.css'
 import Navbar from '../../components/Navbar'
 import Header from '../../components/Header'
 
 function Enrollment() {
+
+
+    const [siiList, setSiiList] = useState([]);
+
+
+    useEffect(() => {
+        Axios.get('http://localhost:3001/services/studentenrollment/get').then((response) => {
+            setSiiList(response.data)
+        })
+    }, [])
+
     return (
         <div className="enrollment-wrapper">
             <Header />
@@ -23,7 +35,24 @@ function Enrollment() {
                         </div>
                         <div className="enrollment-list">
                             <div className="enrollment-status">
-                                No Request Yet
+                            
+                                {siiList.map((val) => {
+                                    return (
+                                        <div className="enrollment-list-contents">
+                                            <Link to="#">
+                                                <div className="enrollment-list-container">
+                                                    <div className="enrollment-list-status">
+                                                        <h3>{val.status}</h3>
+                                                    </div>
+                                                    <div className="enrollment-list-name">
+                                                    <h3>Student Individual Inventory Application</h3>
+                                                    </div>
+                                                </div>
+                                               
+                                            </Link>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>

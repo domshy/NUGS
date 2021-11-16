@@ -70,7 +70,6 @@
 }
 
 .annoucement-body{
-    background-color: pink;
     height: auto;
     padding: 20px;
     display: flex;
@@ -80,7 +79,7 @@
 }
 
 .announcement-image{
-    background-color: purple;
+
     height: 60vh;
     width: 100%;
     margin-top: 5vh;
@@ -88,7 +87,6 @@
 
 .announcement-description{
     height: 50vh;
-    background-color: orange;
     width: 100%;
 }
 

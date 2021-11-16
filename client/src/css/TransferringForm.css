@@ -42,7 +42,6 @@
 
 .transferring-divs{
     font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 1vh;
 }
 
@@ -66,15 +65,6 @@
     margin-right: 35vh;
 }
 
-.transferring-divs textarea{
-    height: 70px;
-    width: 70%;
-    border-radius: 7px;
-    border: 1px solid #aaa;
-    padding: 10px;
-    margin-top: 2vh;
-}
-
 h3.transfer-label{
     color: black;
     font-size: 17px;
@@ -84,79 +74,74 @@ h3.transfer-label{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.text-danger{
-    color: red;
-    margin-left: 40vw;
-    font-weight: bold;
-}
-
-span.text-danger-icon {
-    font-size: 30px;
-    margin-left: 5px;
-}
-
-.transferring-submit-btns{
-    width: 49%;
+.transfer-submit-btns{
+    width: 50%;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
     margin-left: 40vw;
     margin-top: 3vh;
-    height: 70px;
 }
 
-.transferring-back{
+.transfer-back{
     width: 20%;
     height: 40px;
     border-radius: 10px;
 }
 
-button#transferring-cancelBtn{
+button#transfer-cancelBtn{
     cursor: pointer;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
     border: 2px solid #aaa;
     font-size: 16px;
     color: #aaa;
     font-weight: bold;
 }
 
-button#transferring-cancelBtn:hover{
+button#transfer-cancelBtn:hover{
     cursor: pointer;
-    border: 2px solid #000336;
-    color: #000336;
-    box-shadow:  0 0 3px 5px #ccc;
-    transition: .3s;
+    border: 2px solid red;
+    color: red;
+    box-shadow:  0 0 5px 1px #ccc;
+    transition: .5s;
 }
 
-.transferring-submit{
+.transfer-submit{
     width: 20%;
     height: 40px;
     border-radius: 10px;
     margin-left: 5vh;
 }
 
-button#transferring-submitBtn{
+button#transfer-submitBtn{
     cursor: pointer;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-color: #000336;
-    color: white;
-    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    border: 2px solid #30408D;
+    font-size: 16px;
+    color: #30408D;
+    font-weight: bold;
+    margin-left: 2vh;
     
 }
 
-button#transferring-submitBtn:hover{
+button#transfer-submitBtn:hover{
     cursor: pointer;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-color: #000336;
+    border: 2px solid #30408D;
+    background-color: #30408D;
     color: white;
-    border: none;
-    box-shadow:  0 0 3px 5px #ccc;
-    transition: .3s;
+    box-shadow:  0 0 5px 1px #ccc;
+    transition: .5s;
+}
+
+.transfer-error{
+    color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: end;
+    width: 70%;
 }

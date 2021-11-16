@@ -9,7 +9,7 @@ function Messages() {
     return (
         <div className="message-wrapper">
             <Header_ga />
-            <Navbar_ga />
+
             <div className="chatbot">
                 <Chatbody_ga />
             </div>

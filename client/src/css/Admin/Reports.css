@@ -1,10 +1,10 @@
 .reports-wrapper{
     display: flex;
     height: auto;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
-    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    background-color: #dddddd;
+    /* flex-direction: column; */
 }
 
 .reports-name{
@@ -57,13 +57,13 @@
 
 .overview-title h1{
     text-transform: uppercase;
-    margin-left: 17vw;
+    margin-left: 5vw;
 }
 
 .over-all-services{
     background: whitesmoke;
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }
@@ -95,7 +95,7 @@ img#img-services-overall{
 /*good moral*/
 .over-all-goodmoral{
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }
@@ -126,7 +126,7 @@ img#img-goodmoral-overall{
 /*shifting preference*/
 .over-all-shifting{
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }
@@ -227,7 +227,7 @@ span#shifting-bisexual-label{
 /*gender preference*/
 .over-all-gender{
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }
@@ -312,7 +312,7 @@ img#gender-bisexual{
 /*marital status*/
 .over-all-maritalstatus{
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }
@@ -427,7 +427,7 @@ img#maritalstatus-notelegal{
 /*shifting */
 .over-all-shifting{
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }
@@ -479,7 +479,7 @@ span#shifting-living-together-label{
 .over-all-transfer{
     /* background: plum; */
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }
@@ -529,7 +529,7 @@ img#img-transfer-overall{
 .over-all-loa{
     /* background: plum; */
     width: 83%;
-    margin-left: 16vw;
+    margin-left: 7vw;
     height: auto;
     padding: 15px;
 }

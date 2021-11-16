@@ -44,7 +44,6 @@
 
 .stop-schooling-divs{
     font-size: 17px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: -20vh;
     margin-top: 5vh;
 }
@@ -157,4 +156,12 @@ button#stop-schooling-submit:hover{
     color: white;
     box-shadow:  0 0 5px 1px #ccc;
     transition: .5s;
+}
+
+.stop-schooling-error{
+    color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: end;
+    width: 80%;
 }

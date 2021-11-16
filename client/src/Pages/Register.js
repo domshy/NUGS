@@ -243,12 +243,13 @@ function Register() {
                                 className="confirm-bg">
                                 onClick={() => RegisterConfirmation()}
                             </div>
+                            <div className="reg-terms">
+                                <p>Upon signing up you are agree to the <Link to="/TermsAndCondition">Terms & Condition.</Link></p>
+                            </div>
                             <div className="registration-button">
                                 <a href="/"><button id="reg-cancel-btn"><RiCloseCircleFill /> Cancel</button></a> &nbsp; &nbsp;
                                 <button type="button" id="signup-btn" onClick={() => { isRegValid() }} ><ImCheckmark /> Sign up</button>
                             </div>
-
-
 
                             <div className="sign-in-link">
                                 Already have ann account?<span><Link to="/">Sign In</Link></span>

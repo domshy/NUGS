@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import { BiLike } from 'react-icons/bi';
 import chat_icon from '../images/chat_icon.png'
 import { FiSend } from 'react-icons/fi';
-
+import ChatBot from 'react-simple-chatbot';
 
 function Main() {
 
@@ -20,8 +20,9 @@ function Main() {
 
   useEffect(() => {
     Axios.get('http://localhost:3001/announcement/get').then((response) => {
-      setAnnouncementList(response.data)
-    })
+      setAnnouncementList(response.data);
+
+    } )
   }, [])
 
   return (
@@ -30,7 +31,7 @@ function Main() {
       <Navbar />
       <div className="home-body">
         <div className="main-username">
-          <h1>Welcome, Khrysshia!</h1>
+          <h1>Welcome, Arriane!</h1>
         </div>
         <div className="announcement-label">
           <h1>Announcements</h1>
@@ -44,10 +45,8 @@ function Main() {
                 </div>
                 <div className="annoucement-body">
                   <div className="announcement-description">
-                    <p>{val.announcement_description} description</p>
+                    <p>{val.announcement_description}</p>
                     <div className="announcement-space">&nbsp;</div>
-                  </div>
-                  <div className="announcement-image">image
                   </div>
                 </div>
               </div>
@@ -58,7 +57,8 @@ function Main() {
 
       {/* chatbot start */}
       <div className="chatbot_icon">
-        <img src={chat_icon} alt="chat" />
+      
+         
       </div>
       {/* <div className="chatbot-box">
         <div id="chatbotList">

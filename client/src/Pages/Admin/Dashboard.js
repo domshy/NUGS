@@ -11,6 +11,7 @@ function Dashboard() {
         <div className="dashboard-wrapper">
             <Header />
             <Navbar />
+            <div>
             <div className="dashboard-header">
                 <div className="dashboard-name">
                     <h1>Hi Ansherina, your analytics are all set!</h1>
@@ -27,7 +28,7 @@ function Dashboard() {
             <div className="home-graphs">
                 <DashboardGraph />
             </div>
-        </div>
+        </div></div>
     )
 }
 

@@ -122,6 +122,15 @@
     font-size: 12px
 }
 
+.reg-terms{
+    margin-top: 3vh;
+    margin-left: 5px;
+}
+
+.reg-terms p{
+    font-size: 12px;
+}
+
 .reg-space{
     height: 30px;
 }

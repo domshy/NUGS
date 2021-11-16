@@ -9,18 +9,6 @@ import { FaLock } from 'react-icons/fa'
 
 function Landingpage() {
 
-  //register
-  const [student_numberReg, setStudent_numberReg] = useState("");
-  const [fullnameReg, setFullNameReg] = useState("");
-  const [genderReg, setGenderReg] = useState("");
-  const [addressReg, setAddressReg] = useState("");
-  // const [selectedDOB, setSelectedDOB] = useState(null);
-  const [contactnoReg, setContactNoReg] = useState("");
-  const [emailReg, setEmailReg] = useState("");
-  const [collegeReg, setCollegeReg] = useState("");
-  const [passwordReg, setPasswordReg] = useState("");
-  const [cnpasswordReg, setCnPasswordReg] = useState("");
-
   //login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,9 +30,9 @@ function Landingpage() {
         setLoginMsg(response.data.message);
       } else {
       
-          localStorage.setItem("token", response.data.token);
+          sessionStorage.setItem("token", response.data.token);
           setLoginStatus(true);
-          // console.log(response.data[0].email);
+          // console.log(response.data.user[0].email);
           console.log(response.data.message);
           setLoginMsg("student");
           console.log(response)
@@ -63,6 +51,8 @@ function Landingpage() {
       login();
     });
   }
+
+
 
   useEffect(() => {
     Axios.get("http://localhost:3001/login").then((response) => {

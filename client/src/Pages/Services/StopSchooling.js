@@ -1,201 +1,219 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
+import Axios from 'axios'
+import { FaCheck } from 'react-icons/fa'
+import { useHistory, Link } from 'react-router-dom';
 import '../../css/StopSchooling.css'
 import { RiErrorWarningLine } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
 
 
-class StopSchooling extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            fields: {
-                stop_reason: "",
-                enroll_again: "",
-                stop_schooling_other_comment: "",
-                stop_schooling_type_communication: ""
-            },
-            errors: {
-                stop_reason: "",
-                enroll_again: "",
-                stop_schooling_other_comment: "",
-                stop_schooling_type_communication: ""
-            }
-        };
+
+function StopSchooling() {
+    const [submitTransferringForm, setTransferringForm] = useState(false)
+
+    const ConfirmationBox = () => {
+        if (!submitTransferringForm) {
+            document.querySelector(".confirm-bg").style.display = "flex"
+            document.querySelector(".container").style.display = "flex"
+            setTransferringForm(true)
+            submitTransferForm();
+        } else {
+            document.querySelector(".confirm-bg").style.display = "none"
+            document.querySelector(".container").style.display = "none"
+            setTransferringForm(false)
+            history.push('/services/interview');
+        }
     }
 
-    validate = (name, value) => {
-        const { fields } = this.state;
-        switch (name) {
-            case "stop_reason":
-                if (!value || value.trim() === "") {
-                    return "This question is Required";
-                } else {
-                    return "";
-                }
-            case "enroll_again":
-                if (!value || value.trim() === "") {
-                    return "This question is Required";
-                } else {
-                    return "";
-                }
-            case "stop_schooling_other_comment":
-                if (!value || value.trim() === "") {
-                    return "This question is Required";
-                } else {
-                    return "";
-                }
-            case "stop_schooling_type_communication":
-                if (!value || value.trim() === "") {
-                    return "This question is Required";
-                } else {
-                    return "";
-                }
-            default: {
-                return "";
-            }
+    const isTransferFormValid = () => {
+        if (!absence_reason || absence_reason.trim() === "") {
+            setAbsenceReasonErrors("*This field cannot be empty!");
+        } else if (absence_reason === "Select Reason") {
+            setAbsenceReasonErrors("*This field cannot be empty!");
+        } else if (!enroll_again || enroll_again.trim() === "") {
+            setEnrollAgainErrors("*This field cannot be empty!");
+        } else if (enroll_again === "Choose answer") {
+            setEnrollAgainErrors("*This field cannot be empty!");
+        } else if (!comment_to_nu || comment_to_nu.trim() === "") {
+            setCommentToNuErrors("*This field cannot be empty!");
+        } else if (!type_of_comm || type_of_comm.trim() === "") {
+            setTypeOfCommErrors("*This field cannot be empty!");
+        } else if (type_of_comm === "Select type of communication") {
+            setTypeOfCommErrors("*This field cannot be empty!");
+        } else {
+            setAbsenceReasonErrors("");
+            setEnrollAgainErrors("")
+            setCommentToNuErrors("");
+            setTypeOfCommErrors("");
+            setTypeOfCommErrors("");
+            ConfirmationBox();
         }
-    };
+    }
 
-    handleUserInput = e => {
-        this.setState({
-            errors: {
-                ...this.state.errors,
-                [e.target.name]: this.validate(e.target.name, e.target.value)
-            },
-            fields: {
-                ...this.state.fields,
-                [e.target.name]: e.target.value
-            }
+    let history = useHistory();
+
+    const [absence_reason, setAbsenceReason] = useState("");
+    const [enroll_again, setEnrollAgain] = useState("");
+    const [comment_to_nu, setCommentToNu] = useState("");
+    const [type_of_comm, setTypeOfComm] = useState("");
+
+    const [absence_reason_errors, setAbsenceReasonErrors] = useState("");
+    const [enroll_again_errors, setEnrollAgainErrors] = useState("");
+    const [comment_to_nu_errors, setCommentToNuErrors] = useState("");;
+    const [type_of_comm_errors, setTypeOfCommErrors] = useState("");
+
+
+
+
+
+    const [transferlist, setTransferList] = useState([]);
+
+    useEffect(() => {
+        Axios.get('http://localhost:3001/services/interview/get').then((response) => {
+            setTransferList(response.data);
+        },
+            {
+                headers: sessionStorage.getItem("token")
+            })
+    }, [])
+
+    const submitTransferForm = () => {
+        Axios.post("http://localhost:3001/interview/requestinterview/createLeaveOfAbsenceForm", {
+            absence_reason: absence_reason,
+            enroll_again: enroll_again,
+            comment_to_nu: comment_to_nu,
+            type_of_comm: type_of_comm
+
         });
+
+        <Link to="/main" />
+        setTransferList([...transferlist, {
+            absence_reason: absence_reason,
+            enroll_again: enroll_again,
+            comment_to_nu: comment_to_nu,
+            type_of_comm: type_of_comm
+
+        }]);
     };
 
-    handleSubmit = e => {
-        const { fields } = this.state;
-        e.preventDefault();
-        let validationErrors = {};
-        Object.keys(fields).forEach(name => {
-            const error = this.validate(name, fields[name]);
-            if (error && error.length > 0) {
-                validationErrors[name] = error;
-            }
-        });
-        if (Object.keys(validationErrors).length > 0) {
-            this.setState({ errors: validationErrors });
-            return;
-        }
-        if (fields.stop_reason && fields.enroll_again && fields.stop_schooling_other_comment 
-            && fields.stop_schooling_type_communication) {
-            const data = {
-                stop_reason: fields.stop_reason,
-                enroll_again: fields.enroll_again,
-                stop_schooling_other_comment: fields.stop_schooling_other_comment,
-                stop_schooling_type_communication: fields.stop_schooling_type_communication,
-                transfer_other_comment: fields.transfer_other_comment,
-            };
-            window.alert("subit success", JSON.stringify(data));
-            console.log("----data----", data);
-        }
-    };
+    return (
+        <div className="stop-schooling-form-page">
+            <div className="stop-schooling-form-wrapper">
+                <div className="stop-schooling-form-contents">
+                    <div className="stop-schooling-forms-header"><h2>Leave of Absence Form</h2></div>
+                    <form>
+                        <div className="stop-schooling-divs">
+                            <label><h3 className="stop-school-label">*Please identify your Reason</h3></label>
+                            <select
+                                name="absence_reason"
+                                value={absence_reason}
+                                id="absence_reason"
+                                onChange={(e) => {
+                                    setAbsenceReason(e.target.value)
+                                }}>
+                                <option>Select Reason</option>
+                                <option>High Tuition Fee</option>
+                                <option>Financial Problem</option>
+                                <option>Family Problems</option>
+                                <option>Health Issues</option>
+                                <option>Local Employment</option>
+                                <option>Work Abroad</option>
+                                <option>Conflict with Work Schedules</option>
+                                <option>Trimestral Scheme</option>
+                                <option>Pregnancy</option>
+                                <option>Getting Married</option>
+                                <option>Lack of Career Plan (Self-Assessment)</option>
+                            </select>
+                        </div>
+                        <span className="stop-schooling-error">{absence_reason_errors}</span>
+                        <div className="stop-schooling-divs">
+                            <label><h3 className="stop-school-label">*Do you intend to enroll back to NU when you want to continue your schooling again?</h3></label>
+                            <select
+                                name="enroll_again"
+                                value={enroll_again}
+                                id="enroll_again"
+                                onChange={(e) => {
+                                    setEnrollAgain(e.target.value)
+                                }}>
+                                <option>Choose answer</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                        <span className="stop-schooling-error">{enroll_again_errors}</span>
+                        <div className="stop-schooling-divs">
+                            <label><h3 className="stop-school-label">*Other comments and suggestion for NU's further improvement</h3></label>
+                            <input
+                                type="text"
+                                placeholder="Other comments and suggestion for NU's further improvement"
+                                name="comment_to_nu"
+                                value={comment_to_nu}
+                                id="comment_to_nu"
+                                onChange={(e) => {
+                                    setCommentToNu(e.target.value)
+                                }}
+                            />
+                        </div>
+                        <span className="stop-schooling-error">{comment_to_nu_errors}</span>
+                        <div className="stop-schooling-divs">
+                            <label><h3 className="stop-school-label">*How would you like your counselor to communicate with you?</h3></label>
+                            <select
+                                name="type_of_comm"
+                                value={type_of_comm}
+                                id="type_of_comm"
+                                onChange={(e) => {
+                                    setTypeOfComm(e.target.value)
+                                }}>
+                                <option>Select type of communication</option>
+                                <option>Audio Call</option>
+                                <option>Chat</option>
+                                <option>Video Chat</option>
+                            </select>
+                        </div>
+                        <span className="stop-schooling-error">{type_of_comm_errors}</span>
 
-    render() {
-        const { fields, errors } = this.state;
-        return (
-            <div className="stop-schooling-form-page">
-                <div className="stop-schooling-form-wrapper">
-                    <div className="stop-schooling-form-contents">
-                        <div className="stop-schooling-forms-header"><h2>Stop Schooling Form</h2></div>
-                        <form>
-                            <div className="stop-schooling-divs">
-                                <label><h3 className="stop-school-label">*Please identify your Reason</h3></label>
-                                <select
-                                    id="stop_reason"
-                                    name="stop_reason"
-                                    value={fields.stop_reason || ''}
-                                    onChange={event => this.handleUserInput(event)}>
-                                    <option>Select Reason</option>
-                                    <option>High Tuition Fee</option>
-                                    <option>Financial Problem</option>
-                                    <option>Family Problems</option>
-                                    <option>Health Issues</option>
-                                    <option>Local Employment</option>
-                                    <option>Work Abroad</option>
-                                    <option>Conflict with Work Schedules</option>
-                                    <option>Trimestral Scheme</option>
-                                    <option>Pregnancy</option>
-                                    <option>Getting Married</option>
-                                    <option>Lack of Career Plan (Self-Assessment)</option>
-                                </select>
-                                <span className="text-danger-icon">{errors.stop_reason && <RiErrorWarningLine color='red' />}</span>
+                        {/* pop up */}
+                        <div className="container">
+                            <div className="popup-announcement-header"></div>
+                            <div className="confirmation-text">
+                                <span id="announcement-check"><FaCheck color='green' size='3em' /></span>
+                                <p id="announcement-context">Request was successfully Submitted!</p>
                             </div>
-                            <div>
-                                <span className="text-danger">{errors.stop_reason}</span>
+                            <div className="button-container">
+                                <button
+                                    type="button"
+                                    className="cancel-button"
+                                    onClick={() => ConfirmationBox()}>
+                                    Ok
+                                </button>
                             </div>
-                            <div className="stop-schooling-divs">
-                                <label><h3 className="stop-school-label">*Do you intend to enroll back to NU when you want to continue your schooling again?</h3></label>
-                                <select
-                                    id="enroll_again"
-                                    name="enroll_again"
-                                    value={fields.enroll_again || ''}
-                                    onChange={event => this.handleUserInput(event)}>
-                                    <option>Choose answer</option>
-                                    <option>Yes</option>
-                                    <option>No</option>
-                                </select>
-                                <span className="text-danger-icon">{errors.enroll_again && <RiErrorWarningLine color='red' />}</span>
+                            <div id="announcement-spacer">&nbsp;</div>
+                        </div>
+                        <div
+                            className="confirm-bg">
+                            onClick={() => ConfirmationBox()}
+                        </div>
+                        <div className="stop-schooling-submit-btns">
+                            <div className="stop-schooling-back">
+                                <Link to="/services/interview">
+                                    <button type="button" id="stop-schooling-cancelBtn">Cancel</button>
+                                </Link>
+                            </div><div className="stop-schooling-submit">
+                                <button
+                                    type="button"
+                                    id="stop-schooling-submitBtn"
+                                    onClick={() => { isTransferFormValid() }}>Submit</button>
                             </div>
-                            <div>
-                                <span className="text-danger">{errors.enroll_again}</span>
-                            </div>
-
-                            <div className="stop-schooling-divs">
-                                <label><h3 className="stop-school-label">*Other comments and suggestion for NU's further improvement</h3></label>
-                                <input
-                                    id="stop_schooling_other_comment"
-                                    type="text"
-                                    name="stop_schooling_other_comment"
-                                    value={fields.stop_schooling_other_comment || ''}
-                                    onChange={event => this.handleUserInput(event)}
-                                    placeholder="Other comments and suggestion for NU's further improvement" />
-                                <span className="text-danger-icon">{errors.stop_schooling_other_comment && <RiErrorWarningLine color='red' />}</span>
-                            </div>
-                            <div>
-                                <span className="text-danger">{errors.stop_schooling_other_comment}</span>
-                            </div>
+                        </div>
 
 
-                            <div className="stop-schooling-divs">
-                                <label><h3 className="stop-school-label">*How would you like your counselor to communicate with you?</h3></label>
-                                <select
-                                    id="stop_schooling_type_communication"
-                                    name="stop_schooling_type_communication"
-                                    value={fields.stop_schooling_type_communication || ''}
-                                    onChange={event => this.handleUserInput(event)}>
-                                    <option>Select type of communication</option>
-                                    <option>Audio Call</option>
-                                    <option>Chat</option>
-                                    <option>Video Chat</option>
-                                </select>
-                                <span className="text-danger-icon">{errors.stop_schooling_type_communication && <RiErrorWarningLine color='red' />}</span>
-                            </div>
-                            <div>
-                                <span className="text-danger">{errors.stop_schooling_type_communication}</span>
-                            </div>
+                    </form>
 
-                            <div className="stop-schooling-submit-btns">
-                                <div className="stop-schooling-back">
-                                    <Link to="/services/interview">
-                                        <button type="button" id="stop-schooling-cancelBtn">Cancel</button>
-                                    </Link>
-                                </div><div className="stop-schooling-submit">
-                                    <button type="button" id="stop-schooling-submitBtn" onClick={this.handleSubmit} >Submit
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
+
             </div>
-        )
-    }
+
+        </div>
+    )
 }
+
 export default StopSchooling

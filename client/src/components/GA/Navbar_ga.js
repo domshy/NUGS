@@ -53,7 +53,9 @@ function Navbar_ga() {
                         <ul>
                             <li>
                                 <IoAlertCircleOutline size="2.7em" color="#000336" />
+                                <Link to="/aboutus">
                                 <span>About Us</span>
+                                </Link>
                             </li>
                         </ul>
                     </div>
