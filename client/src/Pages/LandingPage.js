@@ -6,6 +6,7 @@ import logo1 from '../images/logo1.png'
 import { Link } from 'react-router-dom'
 import { IoPerson } from 'react-icons/io5'
 import { FaLock } from 'react-icons/fa'
+import { useCookies } from 'react-cookie'
 
 function Landingpage() {
 
@@ -19,18 +20,28 @@ function Landingpage() {
 
   const [loginmsg, setLoginMsg] = useState("");
 
+  const [cookies, setCookie] = useCookies(['access_token', 'refresh_token'])
+
   Axios.defaults.withCredentials = true;
   const login = () => {
     Axios.post("http://localhost:3001/login", {
       email: email,
       password: password,
     }).then((response) => {
+
+      console.log(response, 'err', response.data.auth);
+
       if (!response.data.auth) {
         setLoginStatus(false);
         setLoginMsg(response.data.message);
       } else {
-      
-          sessionStorage.setItem("token", response.data.token);
+
+          let expires = new Date()
+
+          expires.setTime(expires.getTime() + (response.data.expires_in * 1000))
+
+          setCookie('token', response.data.token, { path: '/',  expires});
+
           setLoginStatus(true);
           // console.log(response.data.user[0].email);
           console.log(response.data.message);
@@ -52,14 +63,7 @@ function Landingpage() {
     });
   }
 
-
-
   useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response) => {
-      if (response.data.loggedIn == true) {
-         setLoginStatus(response.data.user[0].email);
-      }
-    })
   }, [])
 
   return (

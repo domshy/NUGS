@@ -175,7 +175,7 @@ app.post('/login', async (req, res) => {
 
                         req.session.user = first;
 
-                        res.status(200).json({...first, token : token})
+                        res.status(200).json({...first, token : token, auth : true})
 
                     } else {
                         res.json({ auth: false, message: "Incorrect email or Password!" });

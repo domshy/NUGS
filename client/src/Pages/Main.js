@@ -19,6 +19,7 @@ function Main() {
   const [loginStatus, setLoginStatus] = useState("");
 
   useEffect(() => {
+      console.log(sessionStorage.getItem('token'));
     Axios.get('http://localhost:3001/announcement/get').then((response) => {
       setAnnouncementList(response.data);
 
