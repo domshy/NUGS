@@ -1,14 +1,18 @@
 const jwt = require('jsonwebtoken');
 
+const config = process.env;
+
 //verify
 const verifyJWT = (req, res, next) => {
-
-    const token = req.headers["x-access-token"]
+    const token = req.headers["authorization"]
 
     if (!token) {
         res.send("User not logged in!");
     } else {
-        jwt.verify(token, "jwtSecret", (err, decoded) => {
+
+        let jwtToken = verifyBearer(token)
+
+        jwt.verify(jwtToken, config.JWT_TOKEN_SECRET, (err, decoded) => {
             if (err) {
                 res.json({ auth: false, message: "you failed to auth" });
             } else {
@@ -19,11 +23,21 @@ const verifyJWT = (req, res, next) => {
     }
 }
 
+const verifyBearer = (token) => {
+    if(typeof token != 'undefined'){
+        //split at the space
+        const bearer = token.split(' ');
+        //Get the token from array
+        return bearer[1];
+    }
+}
+
 const generateJwt = (data, config) => {
-    return jwt.sign({data}, process.env.TOKEN_SECRET, config);
+    return jwt.sign(data, process.env.JWT_TOKEN_SECRET, config);
 };
 
 module.exports = {
     verifyJWT,
-    generateJwt
+    generateJwt,
+    verifyBearer
 }

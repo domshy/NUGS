@@ -23,6 +23,7 @@ const bcrypt = require("bcrypt");
 const { resourceLimits } = require("worker_threads");
 const { Router } = require("express");
 const { nextTick } = require("process");
+const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 
 
@@ -91,8 +92,8 @@ app.post('/register', (req, res) => {
 
 
 //auth
-app.get('/isUserAuth', verifyJWT, (req, res) => {
-    res.send("yo u are auth!");
+app.get('/isUserAuth', verifyJWT, (req, res, next) => {
+    res.status(200).json({auth : true});
 })
 
 //login
@@ -168,7 +169,9 @@ app.post('/login', async (req, res) => {
                             expiresIn : 300
                         };
 
-                        const token = generateJwt(first, tokenConfig);
+                        var email = first.email;
+
+                        const token = generateJwt({user_id : first.users_id, email}, tokenConfig);
 
                         req.session.user = first;
 
