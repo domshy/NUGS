@@ -1,3 +1,6 @@
+require("dotenv").config()
+
+const {generateJwt, verifyJWT} = require('./helpers/jwtHelper')
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -10,8 +13,6 @@ const app = express();
 //     };
 //     server.use('/', express.static('/home/domingokd/https://nuguidancesystem.azurewebsites.net', options));
 //     server.listen(process.env.PORT);
-
-const jwt = require('jsonwebtoken');
 
 
 const fileUpload = require("express-fileupload");
@@ -87,23 +88,7 @@ app.post('/register', (req, res) => {
     });
 });
 
-//verify
-const verifyJWT = (req, res, next) => {
-    const token = req.headers["x-access-token"]
 
-    if (!token) {
-        res.send("User not logged in!");
-    } else {
-        jwt.verify(token, "jwtSecret", (err, decoded) => {
-            if (err) {
-                res.json({ auth: false, message: "you failed to auth" });
-            } else {
-                req.userId = decoded.id;
-                next();
-            }
-        })
-    }
-}
 
 //auth
 app.get('/isUserAuth', verifyJWT, (req, res) => {
@@ -112,6 +97,46 @@ app.get('/isUserAuth', verifyJWT, (req, res) => {
 
 //login
 app.get("/login", (req, res) => {
+
+    const {email, password} = req.body;
+
+    db.query(
+        "SELECT * FROM users WHERE email = ?;",
+        email,
+        (err, result) => {
+            console.log(result);
+            if (err) {
+                res.send({ err: err });
+            }
+
+            if (result.length > 0) {
+
+               res.send('asd')
+
+                bcrypt.compare(password, result[0].password, (error, response) => {
+                    if (response) {
+
+                        const id = result[0].id
+                        const token = jwt.sign({ id }, "jwtSecret", {
+                            expiresIn: 300, //5mns
+                        })
+
+                        req.session.user = result;
+
+                        res.json({ auth: true, token: token, result: result, message: "hurray" });
+
+
+                    } else {
+                        res.json({ auth: false, message: "Incorrect email or Password!" });
+                        console.log(err);
+                    }
+                })
+            } else {
+                res.json({ auth: false, message: "Invalid Email or Password!" });
+            }
+        }
+    );
+
     if (req.session.user) {
         res.send({ loggedIn: true, user: req.session.user });
     } else {
@@ -136,14 +161,18 @@ app.post('/login', async (req, res) => {
                     if (response) {
 
                         const id = result[0].id
-                        const token = jwt.sign({ id }, "jwtSecret", {
-                            expiresIn: 300, //5mns
-                        })
 
-                        req.session.user = result;
+                        const [first] = result;
 
-                        res.json({ auth: true, token: token, result: result, message: "hurray" });
+                        let tokenConfig = {
+                            expiresIn : 300
+                        };
 
+                        const token = generateJwt(first, tokenConfig);
+
+                        req.session.user = first;
+
+                        res.status(200).json({...first, token : token})
 
                     } else {
                         res.json({ auth: false, message: "Incorrect email or Password!" });
@@ -465,6 +494,10 @@ app.get("/announcement/get", (req, res) => {
     });
 });
 
+app.get("/health-check", (req, res) => {
+    res.json({ msg : "Hello" });
+});
+
 //insert announcement
 app.post("/announcement/create", (req, res) => {
     const announcement_title = req.body.announcement_title
@@ -494,5 +527,5 @@ if (process.env.NODE_ENV === "production") {
 
 app.listen(port, (err) => {
     if (err) return console.log(err);
-    console.log('running on port: ', port);
+    console.log('running on port:asdaf ', port);
 })
