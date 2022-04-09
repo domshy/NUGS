@@ -1,6 +1,6 @@
 require("dotenv").config()
 
-const {generateJwt, verifyJWT} = require('./helpers/jwtHelper')
+const {generateJwt, verifyJWT, verifyAndDecodeJWT} = require('./helpers/jwtHelper')
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -36,15 +36,6 @@ app.use(cors({
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(session({
-    key: "userId",
-    secret: "capstone",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        express: 60 * 60 * 24 * 1000, //24hrs
-    }
-}))
 
 const db = mysql.createConnection({
     user: "root",
@@ -92,58 +83,10 @@ app.post('/register', (req, res) => {
 
 
 //auth
-app.get('/isUserAuth', verifyJWT, (req, res, next) => {
-    res.status(200).json({auth : true});
+app.get('/isUserAuth', verifyAndDecodeJWT, (req, res) => {
+    res.status(200).json(res);
 })
 
-//login
-app.get("/login", (req, res) => {
-
-    const {email, password} = req.body;
-
-    db.query(
-        "SELECT * FROM users WHERE email = ?;",
-        email,
-        (err, result) => {
-            console.log(result);
-            if (err) {
-                res.send({ err: err });
-            }
-
-            if (result.length > 0) {
-
-               res.send('asd')
-
-                bcrypt.compare(password, result[0].password, (error, response) => {
-                    if (response) {
-
-                        const id = result[0].id
-                        const token = jwt.sign({ id }, "jwtSecret", {
-                            expiresIn: 300, //5mns
-                        })
-
-                        req.session.user = result;
-
-                        res.json({ auth: true, token: token, result: result, message: "hurray" });
-
-
-                    } else {
-                        res.json({ auth: false, message: "Incorrect email or Password!" });
-                        console.log(err);
-                    }
-                })
-            } else {
-                res.json({ auth: false, message: "Invalid Email or Password!" });
-            }
-        }
-    );
-
-    if (req.session.user) {
-        res.send({ loggedIn: true, user: req.session.user });
-    } else {
-        res.send({ loggedIn: false });
-    }
-})
 
 app.post('/login', async (req, res) => {
     const email = req.body.email;
@@ -171,9 +114,7 @@ app.post('/login', async (req, res) => {
 
                         var email = first.email;
 
-                        const token = generateJwt({user_id : first.users_id, email}, tokenConfig);
-
-                        req.session.user = first;
+                        const token = generateJwt({...first}, tokenConfig);
 
                         res.status(200).json({...first, token : token, auth : true})
 
@@ -191,9 +132,18 @@ app.post('/login', async (req, res) => {
 
 //-------------------------------------------------------------------------------------//
 //goodmoral get
-app.get("/services/goodmoral/get", (req, res) => {
-    const sqlSelect = "Select * from goodmoral_req"
+app.get("/services/goodmoral/get", verifyJWT, (req, res) => {
+    const sqlSelect = "SELECT * FROM goodmoral_req";
     db.query(sqlSelect, (err, result) => {
+        res.send(result);
+    });
+});
+
+//goodmoral get
+app.get("/services/goodmoral/get/:id", verifyJWT, (req, res) => {
+    const user_id = req.params.id;
+    const sqlSelect = "SELECT * FROM goodmoral_req WHERE user_id = ?";
+    db.query(sqlSelect,user_id, (err, result) => {
         res.send(result);
     });
 });

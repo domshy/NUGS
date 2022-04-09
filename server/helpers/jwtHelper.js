@@ -36,8 +36,22 @@ const generateJwt = (data, config) => {
     return jwt.sign(data, process.env.JWT_TOKEN_SECRET, config);
 };
 
+const verifyAndDecodeJWT = (req, res) => {
+
+    const token = verifyBearer(req.headers["authorization"]);
+
+    jwt.verify(token, config.JWT_TOKEN_SECRET, (err, decoded) => {
+        if (err) {
+            res.json({ auth: false, message: err});
+        } else {
+            res.json(decoded);
+        }
+    })
+}
+
 module.exports = {
     verifyJWT,
     generateJwt,
-    verifyBearer
+    verifyBearer,
+    verifyAndDecodeJWT
 }
