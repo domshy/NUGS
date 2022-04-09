@@ -7,9 +7,22 @@ import header_logo from '../images/header.png'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import Profile from '../Pages/Profile'
 import Main from '../Pages/Main'
+import {useCookies} from "react-cookie";
+
+import {Link} from 'react-router-dom';
+
 // import {Link} from 'react-router-dom'
 
 function Header() {
+
+    const [cookies, setCookie, removeCookie] = useCookies(['token', 'users_id', 'role'])
+
+
+    const logOut = () => {
+        removeCookie('users_id');
+        removeCookie('token');
+        removeCookie('role');
+    }
 
     return (
         <div>
@@ -23,7 +36,7 @@ function Header() {
                     <div className="header_item">
                         <ul>
                             <IconContext.Provider value={{ size: '2em' }}>
-                                <li><a href="/"><IoExitOutline /></a></li>
+                                <li><Link to="/"><IoExitOutline onClick={logOut}></IoExitOutline></Link></li>
                             </IconContext.Provider>
                         </ul>
                     </div>

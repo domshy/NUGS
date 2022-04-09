@@ -36,18 +36,21 @@ function Landingpage() {
         setLoginMsg(response.data.message);
       } else {
 
-          let expires = new Date()
+          let expires = new Date();
+
+          const {token, users_id, role} = response.data;
 
           expires.setTime(expires.getTime() + (response.data.expires_in * 1000))
 
-          setCookie('token', response.data.token, { path: '/',  expires});
+          setCookie('token', token, { path: '/',  expires});
+
+          //userAuthenticated(token);
 
           setLoginStatus(true);
-          // console.log(response.data.user[0].email);
-          console.log(response.data.message);
-          setLoginMsg("student");
-          console.log(response)
-          history.push("/main");
+
+          let routeLocation = (role == 'student') ? '/main' : (role === 'guidance associate') ? '/mainhome' : (role == 'guidance director') ? '/dashboard' : '/admin';
+
+          history.push(routeLocation);
       }
     });
   };
