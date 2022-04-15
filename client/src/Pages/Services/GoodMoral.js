@@ -75,7 +75,7 @@ function GoodMoral() {
 
         });
 
-        <Link to="/main" />
+        <Link to="/services/goodmoral/request" />
         setGoodmoralList([...goodmoralList, {
             purpose_req: purpose_req,
             number_copy: number_copy,
@@ -155,13 +155,6 @@ function GoodMoral() {
                         </div>
                         <span className="goodmoral-error">{special_instruction_errors}</span>
 
-                        <div className="goodmoral-divs">
-                            <label><h3 id="goodmoral-label">*Proof of Payment</h3></label>
-                            <input
-                                type="file"
-
-                            />
-                        </div>
                         {/* pop up */}
                         <div className="container">
                             <div className="popup-announcement-header"></div>

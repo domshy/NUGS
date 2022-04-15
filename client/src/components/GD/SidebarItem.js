@@ -10,7 +10,7 @@ import { BsCalendar } from 'react-icons/bs';
 import { HiOutlineSpeakerphone } from 'react-icons/hi';
 import { VscPerson } from 'react-icons/vsc'
 
-export const NavbarItem_gc = [
+export const SidebarItem = [
     {
         title: "Dashboard",
         icon: <RiDashboardLine />,
@@ -42,9 +42,19 @@ export const NavbarItem_gc = [
         path: "/messages",
     },
     {
+        title: "Account Management",
+        icon: <MdSupervisorAccount />,
+        path: "/accountmanagement",
+    },
+    {
+        title: "Activity Logs",
+        icon: <MdLocalActivity />,
+        path: "/activitylogs",
+    },
+    {
         title: "Me",
         icon: <VscPerson />,
-        path: "/myaccount",
+        path: "/account",
     },
     
 ]

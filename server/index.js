@@ -93,7 +93,7 @@ app.post('/login', async (req, res) => {
     const password = req.body.password;
 
     db.query(
-        "SELECT * FROM users WHERE email = ?;",
+        "SELECT * FROM users WHERE email = ? ",
         email,
         (err, result) => {
             if (err) {
