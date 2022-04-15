@@ -26,7 +26,7 @@ export const NavbarItems = [
             {
                 title: "Certificate of Good Moral",
                 icon: <BsAward />,
-                path: "/services/goodmoral/request"
+                path: "/services/goodmoral"
             },
             {
                 title: "Student Individual Inventory",

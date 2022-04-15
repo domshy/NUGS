@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../css/GA/Totallist.css'
-import CalendarAdmin from '../../components/Admin/Calendar/CalendarAdmin'
 import { BiTimeFive } from 'react-icons/bi'
 import gender from '../../images/overall/sii gender preference.png'
 

@@ -6,7 +6,6 @@ import { HiOutlinePencilAlt } from 'react-icons/hi'
 import { FaTrash } from 'react-icons/fa'
 import Header from '../../components/GA/Header_ga'
 import Navbar from '../../components/GA/Navbar_ga'
-import DashBoardList from '../../components/Admin/DashBoardList';
 import TotalList from './TotalList';
 
 

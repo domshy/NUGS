@@ -16,8 +16,8 @@ function GoodMoralReq() {
     const [goodmoralList, setGoodmoralList] = useState([]);
 
     useEffect(() => {
-        Axios.get('http://localhost:3001/services/goodmoral/get').then((response) => {
-            setGoodmoralList(response.data)
+        Axios.get('/services/goodmoral/get/:id').then((response) => {
+            setGoodmoralList(response.data.goodmoral_id)
         })
     }, [])
 
@@ -33,7 +33,7 @@ function GoodMoralReq() {
                 <div className="goodmoralreq-holder">
                     <div className="goodmoralreq-contents">
                         <div className="goodmoralreq-create-btn">
-                            <Link to="/services/goodmoral">
+                            <Link to="/services/goodmoral/request">
                                 <button><MdAdd />Request a Certificate of Goodmoral</button>
                             </Link>
                         </div>
