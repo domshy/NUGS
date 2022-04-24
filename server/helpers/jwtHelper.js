@@ -16,7 +16,11 @@ const verifyJWT = (req, res, next) => {
             if (err) {
                 res.json({ auth: false, message: "you failed to auth" });
             } else {
-                req.userId = decoded.id;
+
+                req.params = {
+                    user : decoded,
+                    ...req.body
+                }
                 next();
             }
         })

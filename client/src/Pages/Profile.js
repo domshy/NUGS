@@ -7,8 +7,14 @@ import arri from '../images/arri.jpg'
 
 import Header from '../components/Header'
 import Navbar from '../components/Navbar';
+import {UserContext} from "../contexts/user/userContext";
 
 function Profile() {
+
+    const [state] = React.useContext(UserContext)
+
+    console.log(state);
+
     return (
         <div className="profile-wrapper">
             <Header />
