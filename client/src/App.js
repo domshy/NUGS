@@ -44,20 +44,40 @@ import CounselingConsent from './Pages/CounselingConsent';
 
 import TermsAndCondition from './Pages/Terms';
 import Home from './Pages/GD/Home';
+import PrivateRoute from "./Utility/Helpers/PrivateRoute";
+import PublicRoute from "./Utility/Helpers/PublicRoute";
+import {UserProvider} from "./contexts/user/userContext";
 
 
 function App() {
 
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={Landingpage} />
-        <Route path="/register" component={Register} />
+      <UserProvider>
+            <PublicRoute path="/" exact component={Landingpage} />
+            <PublicRoute path="/register" component={Register} />
+            <PublicRoute path="/TermsAndCondition" component={TermsAndCondition} />
+            <PrivateRoute path="/main" component={Main} restricted={false} role={['student']} />
+            <PublicRoute exact path="/profile" component={Profile}/>
+            <PublicRoute exact path="/aboutus" component={Aboutus} />
 
-        <Route path="/TermsAndCondition" component={TermsAndCondition} />
+            {/* Guidance Associate */}
+            <PrivateRoute exact path="/mainhome" component={MainHome} role={['guidance associate']}/>
+            <PrivateRoute exact path="/pendingrequests" component={PendingRequest} role={['guidance associate']}/>
+            <PrivateRoute exact path="/pendingrequests/viewrequestdetails" component={ViewPending} role={['guidance associate']} />
+            <PrivateRoute exact path="/scheduledrequest" component={ScheduledRequest} role={['guidance associate']} />
+            <PrivateRoute exact path="/messages/inbox" component={Messages} role={['guidance associate']} />
+            <PrivateRoute exact path="/announcement" component={Announcement} role={['guidance associate']} />
+            <PrivateRoute exact path="/records" component={Records} role={['guidance associate']} />
+
+            <PrivateRoute exact path="/myprofile" component={MyProfile} role={['guidance associate']} />
+            <PrivateRoute exact path="/myprofile/edit" component={EditProfile_ga} role={['guidance associate']} />
+
+            <PrivateRoute exact path="/home" component={Home} role={['guidance associate']} />
+       </UserProvider>
 
         {/* Student */}
-        <Route path="/main" component={Main} />
+
         <Route exact path="/aboutus" component={Aboutus} />
         <Route path="/services" exact component={Services} />
         <Route path="/services/goodmoral" exact component={GoodMoralReq} />
@@ -78,27 +98,11 @@ function App() {
         <Route exact path="/messages" component={Chat} />
         <Route exact path="/chats" component={Chatbody} />
 
-        <Route exact path="/profile" component={Profile} />
+
         <Route exact path="/profile/editprofile" component={EditProfile} />
 
 
-        {/* Guidance Associate */}
-        <Route exact path="/mainhome" component={MainHome} />
-        <Route exact path="/pendingrequests" component={PendingRequest} />
-        <Route exact path="/pendingrequests/viewrequestdetails" component={ViewPending} />
-        <Route exact path="/scheduledrequest" component={ScheduledRequest} />
-        <Route exact path="/messages/inbox" component={Messages} />
-        <Route exact path="/announcement" component={Announcement} />
-        <Route exact path="/records" component={Records} />
 
-        <Route exact path="/myprofile" component={MyProfile} />
-        <Route exact path="/myprofile/edit" component={EditProfile_ga} />
-        <Route exact path="/aboutus" component={Aboutus} />
-
-        <Route exact path="/home" component={Home} />
-
-
-      </Switch>
     </Router>
   );
 }

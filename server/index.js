@@ -148,6 +148,20 @@ app.get("/services/goodmoral/get/:id", verifyJWT, (req, res) => {
     });
 });
 
+//Get good moral per department and status
+app.get("/services/goodmoral", verifyJWT, (req, res) => {
+
+    const {user : {department_id}, status} = req.params;
+
+    const sqlSelect = "SELECT * FROM goodmoral_req WHERE user_id IN (select users_id from users INNER JOIN departments ON department_id = id where department_id = ?) and status = ?";
+    db.query(sqlSelect,[department_id, status], (err, result) => {
+        res.send(result);
+    });
+});
+
+
+
+
 //insert goodmoral 
 app.post("/services/goodmoral/create", (req, res) => {
     const purpose_req = req.body.purpose_req
