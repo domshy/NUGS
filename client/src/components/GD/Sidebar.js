@@ -15,10 +15,10 @@ function Sidebar() {
                     <div className='logo'>
                         <img src={nu_logo} alt="nu_logo" />
                     </div>
-                    <div onClick={() => setSidebar(!sidebar)} className="toggle-menu-btn">
+                    {/* <div onClick={() => setSidebar(!sidebar)} className="toggle-menu-btn">
                         {sidebar ? (<CgArrowRightR color="white" />)
                             : (<CgArrowLeftR color="#000336" />)}
-                    </div>
+                    </div> */}
                 </div>
                 <div className='side-menu-divider'></div>
 

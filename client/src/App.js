@@ -46,7 +46,9 @@ import TermsAndCondition from './Pages/Terms';
 import Home from './Pages/GD/Home';
 import PrivateRoute from "./Utility/Helpers/PrivateRoute";
 import PublicRoute from "./Utility/Helpers/PublicRoute";
-import {UserProvider} from "./contexts/user/userContext";
+import { UserProvider } from "./contexts/user/userContext";
+import Reports from './Pages/GD/Reports';
+import PendingReq from './Pages/GD/PendingRequest';
 
 
 function App() {
@@ -54,52 +56,55 @@ function App() {
   return (
     <Router>
       <UserProvider>
-            <PublicRoute path="/" exact component={Landingpage} />
-            <PublicRoute path="/register" component={Register} />
-            <PublicRoute path="/TermsAndCondition" component={TermsAndCondition} />
-            <PrivateRoute path="/main" component={Main} restricted={false} role={['student']} />
-            <PublicRoute exact path="/profile" component={Profile}/>
-            <PublicRoute exact path="/aboutus" component={Aboutus} />
+        <PublicRoute path="/" exact component={Landingpage} />
+        <PublicRoute path="/register" component={Register} />
+        <PublicRoute path="/TermsAndCondition" component={TermsAndCondition} />
 
-            {/* Guidance Associate */}
-            <PrivateRoute exact path="/mainhome" component={MainHome} role={['guidance associate']}/>
-            <PrivateRoute exact path="/pendingrequests" component={PendingRequest} role={['guidance associate']}/>
-            <PrivateRoute exact path="/pendingrequests/viewrequestdetails" component={ViewPending} role={['guidance associate']} />
-            <PrivateRoute exact path="/scheduledrequest" component={ScheduledRequest} role={['guidance associate']} />
-            <PrivateRoute exact path="/messages/inbox" component={Messages} role={['guidance associate']} />
-            <PrivateRoute exact path="/announcement" component={Announcement} role={['guidance associate']} />
-            <PrivateRoute exact path="/records" component={Records} role={['guidance associate']} />
-
-            <PrivateRoute exact path="/myprofile" component={MyProfile} role={['guidance associate']} />
-            <PrivateRoute exact path="/myprofile/edit" component={EditProfile_ga} role={['guidance associate']} />
-
-            <PrivateRoute exact path="/home" component={Home} role={['guidance associate']} />
-       </UserProvider>
 
         {/* Student */}
+        <PrivateRoute path="/main" component={Main} role={['student']} />
+        <PrivateRoute path="/services" exact component={Services} role={['student']} />
+        <PrivateRoute path="/services/goodmoral" exact component={GoodMoralReq} role={['student']} />
+        <PrivateRoute path="/services/goodmoral/request" exact component={GoodMoral} role={['student']} />
+        <PrivateRoute path="/services/studentenrollment" exact component={Enrollment} role={['student']} />
+        <PrivateRoute exact path="/enrollment/enrollmentstudentform" component={EnrollmentForm} role={['student']} />
+        <PrivateRoute path="/services/interview" exact component={Interview} role={['student']} />
+        <PrivateRoute exact path="/interview/requestinterview" component={InterviewForm} role={['student']} />
 
-        <Route exact path="/aboutus" component={Aboutus} />
-        <Route path="/services" exact component={Services} />
-        <Route path="/services/goodmoral" exact component={GoodMoralReq} />
-        <Route path="/services/goodmoral/request" exact component={GoodMoral} />
-        <Route path="/services/studentenrollment" exact component={Enrollment} />
-        <Route exact path="/enrollment/enrollmentstudentform" component={EnrollmentForm} />
-        <Route path="/services/interview" exact component={Interview} />
-        <Route exact path="/interview/requestinterview" component={InterviewForm} />
+        <PrivateRoute exact path="/interview/shiftingform" component={ShiftingForm} role={['student']} />
+        <PrivateRoute exact path="/interview/shiftingform" component={GraduatingForm} role={['student']} />
+        <PrivateRoute exact path="/interview/shiftingform" component={StopSchooling} role={['student']} />
+        <PrivateRoute exact path="/interview/shiftingform" component={TransferringForm} role={['student']} />
 
-        <Route exact path="/interview/shiftingform" component={ShiftingForm} />
-        <Route exact path="/interview/shiftingform" component={GraduatingForm} />
-        <Route exact path="/interview/shiftingform" component={StopSchooling} />
-        <Route exact path="/interview/shiftingform" component={TransferringForm} />
+        <PrivateRoute exact path="/counseling" component={Counseling} role={['student']} />
+        <PrivateRoute exact path="/counseling/consent" component={CounselingConsent} role={['student']} />
+        <PrivateRoute exact path="/counseling/counselingform" component={CounselingForm} role={['student']} />
+        <PrivateRoute exact path="/messages" component={Chat} role={['student']} />
+        <PrivateRoute exact path="/chats" component={Chatbody} role={['student']} />
 
-        <Route exact path="/counseling" component={Counseling} />
-        <Route exact path="/counseling/consent" component={CounselingConsent} />
-        <Route exact path="/counseling/counselingform" component={CounselingForm} />
-        <Route exact path="/messages" component={Chat} />
-        <Route exact path="/chats" component={Chatbody} />
+        <PrivateRoute exact path="/profile" component={Profile} role={['student']} />
+        <PrivateRoute exact path="/aboutus" component={Aboutus} role={['student']} />
+        <PrivateRoute exact path="/profile/editprofile" component={EditProfile} role={['student']} />
 
 
-        <Route exact path="/profile/editprofile" component={EditProfile} />
+        {/* Guidance Associate */}
+        <PrivateRoute exact path="/mainhome" component={MainHome} role={['guidance associate']} />
+        <PrivateRoute exact path="/pendingrequests" component={PendingRequest} role={['guidance associate']} />
+        <PrivateRoute exact path="/pendingrequests/viewrequestdetails" component={ViewPending} role={['guidance associate']} />
+        <PrivateRoute exact path="/scheduledrequest" component={ScheduledRequest} role={['guidance associate']} />
+        <PrivateRoute exact path="/messages/inbox" component={Messages} role={['guidance associate']} />
+        <PrivateRoute exact path="/announcement" component={Announcement} role={['guidance associate']} />
+        <PrivateRoute exact path="/records" component={Records} role={['guidance associate']} />
+
+        <PrivateRoute exact path="/myprofile" component={MyProfile} role={['guidance associate']} />
+        <PrivateRoute exact path="/myprofile/edit" component={EditProfile_ga} role={['guidance associate']} />
+
+        {/* Guidance Director */}
+        <PrivateRoute exact path="/dashboard" component={Home} role={['guidance director']} />
+        <PrivateRoute exact path="/reports" component={Reports} role={['guidance director']} />
+        <PrivateRoute exact path="/pendingrequests/view" component={PendingReq} role={['guidance director']} /> 
+      </UserProvider>
+
 
 
 
