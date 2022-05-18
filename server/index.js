@@ -130,6 +130,7 @@ app.post('/login', async (req, res) => {
     );
 });
 
+
 //-------------------------------------------------------------------------------------//
 //goodmoral get
 app.get("/services/goodmoral/get", verifyJWT, (req, res) => {
