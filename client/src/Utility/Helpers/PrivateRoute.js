@@ -1,10 +1,10 @@
-import {Redirect, Route} from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import React from "react";
 import { useCookies } from 'react-cookie'
-import {UserContext} from "../../contexts/user/userContext";
+import { UserContext } from "../../contexts/user/userContext";
 import jwt_decode from "jwt-decode";
 
-const PrivateRoute = ({component: Component, ...rest}) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
 
     let user;
 
@@ -14,10 +14,10 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 
     const [cookies] = useCookies(['token']);
 
-    if(cookies.token) {
+    if (cookies.token) {
         user = jwt_decode(cookies.token);
         isAllowed = rest.role.includes(user.role);
-        dispatch({type : "setUser", payload : user})
+        dispatch({ type: "setUser", payload: user })
     }
 
     return (
@@ -27,7 +27,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
         <Route {...rest} render={props => (
             user && isAllowed ?
                 <Component {...props} />
-                : <Redirect to="/main" />
+                : <Redirect to="/" />
         )} />
     );
 };

@@ -148,7 +148,7 @@ app.get("/services/goodmoral/get/:id", verifyJWT, (req, res) => {
     });
 });
 
-//Get good moral per department and status
+//(Guidance assoc)Get good moral per department and status
 app.get("/services/goodmoral", verifyJWT, (req, res) => {
 
     const {user : {department_id}, status} = req.params;

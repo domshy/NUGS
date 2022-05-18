@@ -24,12 +24,12 @@ export const SidebarItem = [
     {
         title: "Pending Requests",
         icon: <VscServerProcess />,
-        path: "/pendingrequests",
+        path: "/pendingrequests/view",
     },
     {
         title: "Scheduled Request",
         icon: <BsCalendar />,
-        path: "/scheduledrequest",
+        path: "/scheduledrequest/view",
     },
     {
         title: "Announcement",
@@ -39,7 +39,7 @@ export const SidebarItem = [
     {
         title: "Messages",
         icon: <BsChatDotsFill />,
-        path: "/messages",
+        path: "/messages/view",
     },
     {
         title: "Account Management",
