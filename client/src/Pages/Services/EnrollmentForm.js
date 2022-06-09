@@ -70,37 +70,51 @@ function EnrollmentForm() {
             setAnnualIncomeErrors("*This field cannot be empty!");
         } else if (!enrollment_hobbies || enrollment_hobbies.trim() === "") {
             setEnrollmentHobbiesErrors("*This field cannot be empty!");
-        } else if (!enrollment_elementary || enrollment_elementary.trim() === "") {
+        } 
+        else if (!enrollment_elementary || enrollment_elementary.trim() === "") {
             setElementaryErrors("*This field cannot be empty!");
-        } else if (!elementary_graduated || elementary_graduated.trim() === "") {
+        } 
+        
+        else if (!elementary_graduated || elementary_graduated.trim() === "") {
             setElementaryGraduatedErrors("*This field cannot be empty!");
-        } else if (elementary_graduated.match("^[0-9]*$")) {
-            setEnrollmentYearEnteredErrors("*Numbers only");
-        } else if (!enrollment_junior || enrollment_junior.trim() === "") {
+        } 
+        // else if (elementary_graduated.match("^[0-9]*$")) {
+        //     setElementaryGraduatedErrors("*Numbers only");
+        // } 
+        
+        else if (!enrollment_junior || enrollment_junior.trim() === "") {
             setJuniorErrors("*This field cannot be empty!");
         } else if (!junior_graduated || junior_graduated.trim() === "") {
             setJuniorGraduatedErrors("*This field cannot be empty!");
-        } else if (junior_graduated.match("^[0-9]*$")) {
-            setJuniorGraduatedErrors("*Numbers only");
-        } else if (!enrollment_senior || enrollment_senior.trim() === "") {
+        } 
+        // else if (junior_graduated.match("^[0-9]*$")) {
+        //     setJuniorGraduatedErrors("*Numbers only");
+        // }
+        else if (!enrollment_senior || enrollment_senior.trim() === "") {
             setSeniorErrors("*This field cannot be empty!");
         } else if (!senior_graduated || senior_graduated.trim() === "") {
             setSeniorGraduatedErrors("*This field cannot be empty!");
-        } else if (senior_graduated.match("^[0-9]*$")) {
-            setSeniorGraduatedErrors("*Numbers only");
-        } else if (!enrollment_vocational || enrollment_vocational.trim() === "") {
+        }
+        //  else if (senior_graduated.match("^[0-9]*$")) {
+        //     setSeniorGraduatedErrors("*Numbers only");
+        // }
+         else if (!enrollment_vocational || enrollment_vocational.trim() === "") {
             setVocationalErrors("*This field cannot be empty!");
         } else if (!vocational_graduated || vocational_graduated.trim() === "") {
             setVocationalGraduatedErrors("*This field cannot be empty!");
-        } else if (vocational_graduated.match("^[0-9]*$")) {
+        } 
+        else if (vocational_graduated.match("^[0-9]*$")) {
             setVocationalGraduatedErrors("*Numbers only");
-        } else if (!enrollment_tertiary || enrollment_tertiary.trim() === "") {
+        } 
+        else if (!enrollment_tertiary || enrollment_tertiary.trim() === "") {
             setTertiaryErrors("*This field cannot be empty!");
         } else if (!tertiary_graduated || tertiary_graduated.trim() === "") {
             setTertiaryGraduatedErrors("*This field cannot be empty!");
-        } else if (tertiary_graduated.match("^[0-9]*$")) {
-            setTertiaryGraduatedErrors("*Numbers only");
-        } else if (!easy_subject || easy_subject.trim() === "") {
+        } 
+        // else if (tertiary_graduated.match("^[0-9]*$")) {
+        //     setTertiaryGraduatedErrors("*Numbers only");
+        // } 
+        else if (!easy_subject || easy_subject.trim() === "") {
             setEasySubjectErrors("*This field cannot be empty!");
         } else if (!hard_subject || hard_subject.trim() === "") {
             setHardSubjectErrors("*This field cannot be empty!");
@@ -719,18 +733,7 @@ function EnrollmentForm() {
                             />
                         </div>
                         <span className="enrollment-error">{senior_graduated_errors}</span>
-                        <div className="enrollment-divs">
-                            <label><h3 id="enrollment-label">*Junior High Year Graduated</h3></label>
-                            <input
-                                type="text"
-                                placeholder="Junior High Year Graduated"
-                                value={junior_graduated}
-                                id="junior_graduated"
-                                onChange={(e) => {
-                                    setJuniorGraduated(e.target.value)
-                                }}
-                            />
-                        </div>
+                        
                         <span className="enrollment-error">{junior_graduated_errors}</span>
                         <div className="enrollment-divs">
                             <label><h3 id="enrollment-label">*Vocational (Type N/A if not applicable)</h3></label>

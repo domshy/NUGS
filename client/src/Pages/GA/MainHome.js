@@ -17,6 +17,8 @@ function MainHome() {
   const [announcementList, setAnnouncementList] = useState([]);
 
 
+
+
   useEffect(() => {
     Axios.get('http://localhost:3001/announcement/get').then((response) => {
       setAnnouncementList(response.data)
@@ -30,14 +32,14 @@ function MainHome() {
       <Navbar />
       <div className="mainhome-body">
         <div className="main-home-user-name">
-          <h1>Welcome, Archie</h1>
+          <h1>Welcome,</h1>
         </div>
- 
-          <div className="mainhome-totals">
-            <div className="mainhome-cards">
-              <TotalList />
-            </div>
-            </div>
+
+        <div className="mainhome-totals">
+          <div className="mainhome-cards">
+            <TotalList />
+          </div>
+        </div>
 
         <div className="main-home-contents">
           <h1 id="announcement-main">Announcements</h1>

@@ -18,7 +18,7 @@ function CreateAnnouncement() {
             document.querySelector(".confirm-bg").style.display = "none"
             document.querySelector(".container").style.display = "none"
             setDelTask(false);
-            history.push('/mainhome');
+            history.push('/dashboard');
         }
     }
 
