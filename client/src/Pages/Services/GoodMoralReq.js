@@ -13,11 +13,14 @@ function GoodMoralReq() {
     const [special_instruction, setSpecialInstruct] = useState("");
     const [status, setStatus] = useState("");
 
-    const [goodmoralList, setGoodmoralList] = useState([]);
+    const [user_id, setUser_Id] = useState("");
+
+    const [goodmoralList, setGoodmoralList] = useState ([]);
 
     useEffect(() => {
-        Axios.get('/services/goodmoral/get/:id').then((response) => {
-            setGoodmoralList(response.data.goodmoral_id)
+        Axios.get(`http://localhost:3001/services/goodmoral/${user_id}`).then((response) => {
+            setGoodmoralList(response.data)
+
         })
     }, [])
 

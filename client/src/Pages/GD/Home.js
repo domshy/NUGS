@@ -27,6 +27,9 @@ export default function Home() {
                     <SmallWidget />
                     <LargeWidget />
                 </div>
+                <div className='third-dashboard-section'>
+                    
+                </div>
             </div>
 
         </div>

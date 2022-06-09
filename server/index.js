@@ -1,6 +1,6 @@
 require("dotenv").config()
 
-const {generateJwt, verifyJWT, verifyAndDecodeJWT} = require('./helpers/jwtHelper')
+const { generateJwt, verifyJWT, verifyAndDecodeJWT } = require('./helpers/jwtHelper')
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -88,6 +88,8 @@ app.get('/isUserAuth', verifyAndDecodeJWT, (req, res) => {
 })
 
 
+
+
 app.post('/login', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -109,14 +111,14 @@ app.post('/login', async (req, res) => {
                         const [first] = result;
 
                         let tokenConfig = {
-                            expiresIn : 300
+                            expiresIn: "2h"
                         };
 
                         var email = first.email;
 
-                        const token = generateJwt({...first}, tokenConfig);
+                        const token = generateJwt({ ...first }, tokenConfig);
 
-                        res.status(200).json({...first, token : token, auth : true})
+                        res.status(200).json({ ...first, token: token, auth: true })
 
                     } else {
                         res.json({ auth: false, message: "Incorrect email or Password!" });
@@ -130,36 +132,16 @@ app.post('/login', async (req, res) => {
     );
 });
 
-//-------------------------------------------------------------------------------------//
-//goodmoral get
-app.get("/services/goodmoral/get", verifyJWT, (req, res) => {
-    const sqlSelect = "SELECT * FROM goodmoral_req";
-    db.query(sqlSelect, (err, result) => {
-        res.send(result);
-    });
-});
 
+//-----------------------STUDENTS--------------------------------------------------------------//
 //goodmoral get
-app.get("/services/goodmoral/get/:id", verifyJWT, (req, res) => {
+app.get("/services/goodmoral/:id", verifyJWT, (req, res) => {
     const user_id = req.params.id;
-    const sqlSelect = "SELECT * FROM goodmoral_req WHERE user_id = ?";
-    db.query(sqlSelect,user_id, (err, result) => {
+    const sqlSelect = "SELECT * FROM goodmoral_req WHERE user_id = ? ";
+    db.query(sqlSelect, user_id, (err, result) => {
         res.send(result);
     });
 });
-
-//(Guidance assoc)Get good moral per department and status
-app.get("/services/goodmoral", verifyJWT, (req, res) => {
-
-    const {user : {department_id}, status} = req.params;
-
-    const sqlSelect = "SELECT * FROM goodmoral_req WHERE user_id IN (select users_id from users INNER JOIN departments ON department_id = id where department_id = ?) and status = ?";
-    db.query(sqlSelect,[department_id, status], (err, result) => {
-        res.send(result);
-    });
-});
-
-
 
 
 //insert goodmoral 
@@ -169,8 +151,8 @@ app.post("/services/goodmoral/create", (req, res) => {
     const special_instruction = req.body.special_instruction
     const status = "pending"
     if (!purpose_req == "" || !purpose_req == "") {
-        db.query("INSERT INTO goodmoral_req (purpose_req, number_copy, special_instruction, status) VALUES(?,?,?,?)",
-            [purpose_req, number_copy, special_instruction, status],
+        db.query("INSERT INTO goodmoral_req (purpose_req, number_copy, special_instruction, status, user_id) VALUES(?,?,?,?,?)",
+            [purpose_req, number_copy, special_instruction, status, user_id],
             (err, result) => {
                 console.log(err);
             }
@@ -249,18 +231,19 @@ app.post('/enrollment/enrollmentstudentform/create', (req, res) => {
 })
 
 //get sii
-app.get('/services/studentenrollment/get', (req, res) => {
-    const sqlSelect = "SELECT * from sii_request"
-    db.query(sqlSelect, (err, result) => {
+app.get('/services/studentenrollment/get/:id', verifyJWT, (req, res) => {
+    const user_id = req.params.id;
+    const sqlSelect = "SELECT * from sii_request WHERE user_id = ?";
+    db.query(sqlSelect, user_id, (err, result) => {
         res.send(result);
     });
 });
 
 //shifting get
-app.get('/services/interview/get', (req, res) => {
-    const sqlSelect = "SELECT * FROM shift_req"
-    // const sqlSelect = "SELECT * FROM shift_req INNER JOIN grad_req on shift_req.type_interview = shift_req.type_interview"
-    db.query(sqlSelect, (err, result) => {
+app.get('/services/interview/get/:id', verifyJWT, (req, res) => {
+    const user_id = req.params.id;
+    const sqlSelect = "SELECT * FROM shift_req WHERE user_id = ?";
+    db.query(sqlSelect, user_id, (err, result) => {
         res.send(result);
     });
 });
@@ -290,9 +273,10 @@ app.post("/interview/requestinterview/createShiftForm", (req, res) => {
 
 
 //grad get
-app.get('/services/interview/get', (req, res) => {
-    const sqlSelect = "Select * from exit_req"
-    db.query(sqlSelect, (err, result) => {
+app.get('/services/interview/get/:id', verifyJWT, (req, res) => {
+    const user_id = req.params.id;
+    const sqlSelect = "Select * from exit_req WHERE user_id = ?";
+    db.query(sqlSelect, user_id, (err, result) => {
         res.send(result);
     });
 });
@@ -363,7 +347,7 @@ app.post("/counseling/consent/createConsent", (req, res) => {
     const consult_family = req.body.consult_family
     const contact_fam = req.body.contact_fam
     const other_allied = req.body.other_allied
-    if (!consult_family == "" || !contact_fam == "" || !other_allied == "" ) {
+    if (!consult_family == "" || !contact_fam == "" || !other_allied == "") {
         db.query("INSERT INTO consent_smartchat (consult_family, contact_fam, other_allied) VALUES(?,?,?)",
             [consult_family, contact_fam, other_allied],
             (err, result) => {
@@ -374,17 +358,19 @@ app.post("/counseling/consent/createConsent", (req, res) => {
 });
 
 // consent get
-app.get('/counseling/consent/get', (req, res) => {
-    const sqlSelect = "Select * from consent_smartchat"
-    db.query(sqlSelect, (err, result) => {
+app.get('/counseling/consent/get/:id', verifyJWT, (req, res) => {
+    const user_id = req.params.id;
+    const sqlSelect = "Select * from consent_smartchat WHERE user_id = ?";
+    db.query(sqlSelect, user_id, (err, result) => {
         res.send(result);
     });
 });
 
 //smartchat get
-app.get('/counseling/CounselingForm/get', (req, res) => {
-    const sqlSelect = "Select * from smartchat_req;"
-    db.query(sqlSelect, (err, result) => {
+app.get('/counseling/CounselingForm/get/:id', verifyJWT, (req, res) => {
+    const user_id = req.params.id;
+    const sqlSelect = "Select * from smartchat_req WHERE user_id = ?";
+    db.query(sqlSelect, user_id, (err, result) => {
         res.send(result);
     });
 });
@@ -399,7 +385,7 @@ app.post("/counseling/CounselingForm/create", (req, res) => {
     const type_interview = "Smart Chat"
     if (!concern == "" || !concern_feeling == "" || !type_contact == "" || !type_comm == "") {
         db.query("INSERT INTO smartchat_req (concern, concern_feeling,type_comm, type_contact, status, type_interview) VALUES(?,?,?,?,?,?)",
-            [concern, concern_feeling, type_contact,type_comm, status, type_interview],
+            [concern, concern_feeling, type_contact, type_comm, status, type_interview],
             (err, result) => {
                 console.log(err);
             }
@@ -407,7 +393,26 @@ app.post("/counseling/CounselingForm/create", (req, res) => {
     };
 });
 
-//-------------------------------------------------------------------------------------//
+
+
+//-----------------------Guidance Assoc--------------------------------------------------------------//
+
+//(Guidance assoc)Get good moral per department and status
+app.get("/services/goodmoral", verifyJWT, (req, res) => {
+
+    const { user: { department_id }, status } = req.params;
+
+    const sqlSelect = "SELECT * FROM goodmoral_req WHERE user_id IN (select users_id from users INNER JOIN departments ON department_id = id where department_id = ?) and status = ?";
+    db.query(sqlSelect, [department_id, status], (err, result) => {
+        res.send(result);
+    });
+});
+
+
+
+
+
+//----------------------------Guidance Director---------------------------------------------------------//
 //registering faculty
 app.post('/accountmanagement/create', verifyJWT, (req, res) => {
     const ga_faculty_id = req.body.ga_faculty_id
@@ -462,7 +467,7 @@ app.get("/announcement/get", (req, res) => {
 });
 
 app.get("/health-check", (req, res) => {
-    res.json({ msg : "Hello" });
+    res.json({ msg: "Hello" });
 });
 
 //insert announcement

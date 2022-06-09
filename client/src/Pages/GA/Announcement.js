@@ -115,7 +115,7 @@ function Announcement() {
                                 placeholder="Description"
                                 onChange={(e) => {
                                     setAnnouncementDescription(e.target.value)
-                                }} />/
+                                }} />
                         </div>
                         <span className="announcement-error">{announcement_description_errors}</span>
 

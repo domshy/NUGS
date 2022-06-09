@@ -49,6 +49,7 @@ import PublicRoute from "./Utility/Helpers/PublicRoute";
 import { UserProvider } from "./contexts/user/userContext";
 import Reports from './Pages/GD/Reports';
 import PendingReq from './Pages/GD/PendingRequest';
+import Announcements from './Pages/GD/Announcements';
 
 
 function App() {
@@ -102,7 +103,8 @@ function App() {
         {/* Guidance Director */}
         <PrivateRoute exact path="/dashboard" component={Home} role={['guidance director']} />
         <PrivateRoute exact path="/reports" component={Reports} role={['guidance director']} />
-        <PrivateRoute exact path="/pendingrequests/view" component={PendingReq} role={['guidance director']} /> 
+        <PrivateRoute exact path="/pendingrequests/view" component={PendingReq} role={['guidance director']} />
+        <PrivateRoute exact path="/announcements/view" component={Announcements} role={['guidance director']} /> 
       </UserProvider>
 
 
