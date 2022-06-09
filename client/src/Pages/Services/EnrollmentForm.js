@@ -26,165 +26,165 @@ function EnrollmentForm() {
     }
 
     const isSIIValid = () => {
-        if (!enrollment_year_entered || enrollment_year_entered.trim() === "") {
-            setEnrollmentYearEnteredErrors("*This field cannot be empty!");
-        } else if (!gender_preference || gender_preference.trim() === "") {
-            setGenderPreferenceErrors("*This field cannot be empty!");
-        } else if (!gender_preference == "Select Gender Preference") {
-            setGenderPreferenceErrors("*Please Choose an answer")
-        } else if (!nationality || nationality.trim() === "") {
-            setNationalityErrors("*This field cannot be empty!");
-        } else if (!religion || religion.trim() === "") {
-            setReligionErrors("*This field cannot be empty!");
-        } else if (!place_of_birth || place_of_birth.trim() === "") {
-            setPlacofBirthErrors("*This field cannot be empty!");
-        } else if (!city_address || city_address.trim() === "") {
-            setReligionErrors("*This field cannot be empty!");
-        } else if (!provincial_address || provincial_address.trim() === "") {
-            setProvincialAddressErrors("*This field cannot be empty!");
-        } else if (!civil_status || civil_status.trim() === "") {
-            setCivilStatusErrors("*This field cannot be empty!");
-        } else if (civil_status === "Select civil status") {
-            setCivilStatusErrors("*This field cannot be empty!");
-        } else if (!fb_account || fb_account.trim() === "") {
-            setFbAccountErrors("*This field cannot be empty!");
-        } else if (!father_name || father_name.trim() === "") {
-            setFatherNameErrors("*This field cannot be empty!");
-        } else if (!father_occupation || father_occupation.trim() === "") {
-            setFatherOccupationErrors("*This field cannot be empty!");
-        } else if (!father_education || father_education.trim() === "") {
-            setFatherEducationErrors("*This field cannot be empty!");
-        } else if (!mother_name || mother_name.trim() === "") {
-            setMotherNameErrors("*This field cannot be empty!");
-        } else if (!mother_occupation || mother_occupation.trim() === "") {
-            setMotherOccupationErrors("*This field cannot be empty!");
-        } else if (!mother_education || mother_education.trim() === "") {
-            setMotherEducationErrors("*This field cannot be empty!");
-        } else if (!marital_status || marital_status.trim() === "") {
-            setMaritalStatusErrors("*This field cannot be empty!");
-        } else if (marital_status === "Select Marital Status") {
-            setMaritalStatusErrors("*This field cannot be empty!");
-        } else if (annual_income === "Select estimated annual family income") {
-            setAnnualIncomeErrors("*This field cannot be empty!");
-        } else if (!annual_income || annual_income.trim() === "") {
-            setAnnualIncomeErrors("*This field cannot be empty!");
-        } else if (!enrollment_hobbies || enrollment_hobbies.trim() === "") {
-            setEnrollmentHobbiesErrors("*This field cannot be empty!");
-        } 
-        else if (!enrollment_elementary || enrollment_elementary.trim() === "") {
-            setElementaryErrors("*This field cannot be empty!");
-        } 
+        // if (!enrollment_year_entered || enrollment_year_entered.trim() === "") {
+        //     setEnrollmentYearEnteredErrors("*This field cannot be empty!");
+        // } else if (!gender_preference || gender_preference.trim() === "") {
+        //     setGenderPreferenceErrors("*This field cannot be empty!");
+        // } else if (!gender_preference == "Select Gender Preference") {
+        //     setGenderPreferenceErrors("*Please Choose an answer")
+        // } else if (!nationality || nationality.trim() === "") {
+        //     setNationalityErrors("*This field cannot be empty!");
+        // } else if (!religion || religion.trim() === "") {
+        //     setReligionErrors("*This field cannot be empty!");
+        // } else if (!place_of_birth || place_of_birth.trim() === "") {
+        //     setPlacofBirthErrors("*This field cannot be empty!");
+        // } else if (!city_address || city_address.trim() === "") {
+        //     setReligionErrors("*This field cannot be empty!");
+        // } else if (!provincial_address || provincial_address.trim() === "") {
+        //     setProvincialAddressErrors("*This field cannot be empty!");
+        // } else if (!civil_status || civil_status.trim() === "") {
+        //     setCivilStatusErrors("*This field cannot be empty!");
+        // } else if (civil_status === "Select civil status") {
+        //     setCivilStatusErrors("*This field cannot be empty!");
+        // } else if (!fb_account || fb_account.trim() === "") {
+        //     setFbAccountErrors("*This field cannot be empty!");
+        // } else if (!father_name || father_name.trim() === "") {
+        //     setFatherNameErrors("*This field cannot be empty!");
+        // } else if (!father_occupation || father_occupation.trim() === "") {
+        //     setFatherOccupationErrors("*This field cannot be empty!");
+        // } else if (!father_education || father_education.trim() === "") {
+        //     setFatherEducationErrors("*This field cannot be empty!");
+        // } else if (!mother_name || mother_name.trim() === "") {
+        //     setMotherNameErrors("*This field cannot be empty!");
+        // } else if (!mother_occupation || mother_occupation.trim() === "") {
+        //     setMotherOccupationErrors("*This field cannot be empty!");
+        // } else if (!mother_education || mother_education.trim() === "") {
+        //     setMotherEducationErrors("*This field cannot be empty!");
+        // } else if (!marital_status || marital_status.trim() === "") {
+        //     setMaritalStatusErrors("*This field cannot be empty!");
+        // } else if (marital_status === "Select Marital Status") {
+        //     setMaritalStatusErrors("*This field cannot be empty!");
+        // } else if (annual_income === "Select estimated annual family income") {
+        //     setAnnualIncomeErrors("*This field cannot be empty!");
+        // } else if (!annual_income || annual_income.trim() === "") {
+        //     setAnnualIncomeErrors("*This field cannot be empty!");
+        // } else if (!enrollment_hobbies || enrollment_hobbies.trim() === "") {
+        //     setEnrollmentHobbiesErrors("*This field cannot be empty!");
+        // } 
+        // else if (!enrollment_elementary || enrollment_elementary.trim() === "") {
+        //     setElementaryErrors("*This field cannot be empty!");
+        // } 
         
-        else if (!elementary_graduated || elementary_graduated.trim() === "") {
-            setElementaryGraduatedErrors("*This field cannot be empty!");
-        } 
+        // else if (!elementary_graduated || elementary_graduated.trim() === "") {
+        //     setElementaryGraduatedErrors("*This field cannot be empty!");
+        // } 
         // else if (elementary_graduated.match("^[0-9]*$")) {
         //     setElementaryGraduatedErrors("*Numbers only");
         // } 
         
-        else if (!enrollment_junior || enrollment_junior.trim() === "") {
-            setJuniorErrors("*This field cannot be empty!");
-        } else if (!junior_graduated || junior_graduated.trim() === "") {
-            setJuniorGraduatedErrors("*This field cannot be empty!");
-        } 
+        // else if (!enrollment_junior || enrollment_junior.trim() === "") {
+        //     setJuniorErrors("*This field cannot be empty!");
+        // } else if (!junior_graduated || junior_graduated.trim() === "") {
+        //     setJuniorGraduatedErrors("*This field cannot be empty!");
+        // } 
         // else if (junior_graduated.match("^[0-9]*$")) {
         //     setJuniorGraduatedErrors("*Numbers only");
         // }
-        else if (!enrollment_senior || enrollment_senior.trim() === "") {
-            setSeniorErrors("*This field cannot be empty!");
-        } else if (!senior_graduated || senior_graduated.trim() === "") {
-            setSeniorGraduatedErrors("*This field cannot be empty!");
-        }
+        // else if (!enrollment_senior || enrollment_senior.trim() === "") {
+        //     setSeniorErrors("*This field cannot be empty!");
+        // } else if (!senior_graduated || senior_graduated.trim() === "") {
+        //     setSeniorGraduatedErrors("*This field cannot be empty!");
+        // }
         //  else if (senior_graduated.match("^[0-9]*$")) {
         //     setSeniorGraduatedErrors("*Numbers only");
         // }
-         else if (!enrollment_vocational || enrollment_vocational.trim() === "") {
-            setVocationalErrors("*This field cannot be empty!");
-        } else if (!vocational_graduated || vocational_graduated.trim() === "") {
-            setVocationalGraduatedErrors("*This field cannot be empty!");
-        } 
-        else if (vocational_graduated.match("^[0-9]*$")) {
-            setVocationalGraduatedErrors("*Numbers only");
-        } 
-        else if (!enrollment_tertiary || enrollment_tertiary.trim() === "") {
-            setTertiaryErrors("*This field cannot be empty!");
-        } else if (!tertiary_graduated || tertiary_graduated.trim() === "") {
-            setTertiaryGraduatedErrors("*This field cannot be empty!");
-        } 
+        //  else if (!enrollment_vocational || enrollment_vocational.trim() === "") {
+        //     setVocationalErrors("*This field cannot be empty!");
+        // } else if (!vocational_graduated || vocational_graduated.trim() === "") {
+        //     setVocationalGraduatedErrors("*This field cannot be empty!");
+        // } 
+        // else if (vocational_graduated.match("^[0-9]*$")) {
+        //     setVocationalGraduatedErrors("*Numbers only");
+        // } 
+        // else if (!enrollment_tertiary || enrollment_tertiary.trim() === "") {
+        //     setTertiaryErrors("*This field cannot be empty!");
+        // } else if (!tertiary_graduated || tertiary_graduated.trim() === "") {
+        //     setTertiaryGraduatedErrors("*This field cannot be empty!");
+        // } 
         // else if (tertiary_graduated.match("^[0-9]*$")) {
         //     setTertiaryGraduatedErrors("*Numbers only");
         // } 
-        else if (!easy_subject || easy_subject.trim() === "") {
-            setEasySubjectErrors("*This field cannot be empty!");
-        } else if (!hard_subject || hard_subject.trim() === "") {
-            setHardSubjectErrors("*This field cannot be empty!");
-        } else if (!language_spoken || language_spoken.trim() === "") {
-            setLanguageSpokenErrors("*This field cannot be empty!");
-        } else if (!enrollment_reason || enrollment_reason.trim() === "") {
-            setReasonErrors("*This field cannot be empty!");
-        } else if (!enrollment_learn || enrollment_learn.trim() === "") {
-            setLearnErrors("*This field cannot be empty!");
-        } else if (!enrollment_talk || enrollment_talk.trim() === "") {
-            setTalkErrors("*This field cannot be empty!");
-        } else if (!counselor_talk || counselor_talk.trim() === "") {
-            setCounselorTalkErrors("*This field cannot be empty!");
-        } else if (!enrollment_help || enrollment_help.trim() === "") {
-            setHelpErrors("*This field cannot be empty!");
-        } else if (!guardian_name || guardian_name.trim() === "") {
-            setGuardianNameErrors("*This field cannot be empty!");
-        } else if (!guardian_contact || guardian_contact.trim() === "") {
-            setGuardianContactErrors("*This field cannot be empty!");
-        } else if (!guardian_address || guardian_address.trim() === "") {
-            setGuardianAddressErrors("*This field cannot be empty!");
-        }
+        // else if (!easy_subject || easy_subject.trim() === "") {
+        //     setEasySubjectErrors("*This field cannot be empty!");
+        // } else if (!hard_subject || hard_subject.trim() === "") {
+        //     setHardSubjectErrors("*This field cannot be empty!");
+        // } else if (!language_spoken || language_spoken.trim() === "") {
+        //     setLanguageSpokenErrors("*This field cannot be empty!");
+        // } else if (!enrollment_reason || enrollment_reason.trim() === "") {
+        //     setReasonErrors("*This field cannot be empty!");
+        // } else if (!enrollment_learn || enrollment_learn.trim() === "") {
+        //     setLearnErrors("*This field cannot be empty!");
+        // } else if (!enrollment_talk || enrollment_talk.trim() === "") {
+        //     setTalkErrors("*This field cannot be empty!");
+        // } else if (!counselor_talk || counselor_talk.trim() === "") {
+        //     setCounselorTalkErrors("*This field cannot be empty!");
+        // } else if (!enrollment_help || enrollment_help.trim() === "") {
+        //     setHelpErrors("*This field cannot be empty!");
+        // } else if (!guardian_name || guardian_name.trim() === "") {
+        //     setGuardianNameErrors("*This field cannot be empty!");
+        // } else if (!guardian_contact || guardian_contact.trim() === "") {
+        //     setGuardianContactErrors("*This field cannot be empty!");
+        // } else if (!guardian_address || guardian_address.trim() === "") {
+        //     setGuardianAddressErrors("*This field cannot be empty!");
+        // }
 
 
 
 
-        else {
-            setEnrollmentYearEnteredErrors("");
-            setGenderPreferenceErrors("")
-            setNationalityErrors("");
-            setPlacofBirthErrors("");
-            setCityAddressErrors("");
-            setProvincialAddressErrors("")
-            setCivilStatusErrors("");
-            setFbAccountErrors("");
-            setFatherNameErrors("");
-            setFatherOccupationErrors("")
-            setFatherEducationErrors("");
-            setMotherNameErrors("");
-            setMotherOccupationErrors("");
-            setMotherEducationErrors("")
-            setMaritalStatusErrors("");
-            setAnnualIncomeErrors("");
-            setEnrollmentHobbiesErrors("");
+        // else {
+        //     setEnrollmentYearEnteredErrors("");
+        //     setGenderPreferenceErrors("")
+        //     setNationalityErrors("");
+        //     setPlacofBirthErrors("");
+        //     setCityAddressErrors("");
+        //     setProvincialAddressErrors("")
+        //     setCivilStatusErrors("");
+        //     setFbAccountErrors("");
+        //     setFatherNameErrors("");
+        //     setFatherOccupationErrors("")
+        //     setFatherEducationErrors("");
+        //     setMotherNameErrors("");
+        //     setMotherOccupationErrors("");
+        //     setMotherEducationErrors("")
+        //     setMaritalStatusErrors("");
+        //     setAnnualIncomeErrors("");
+        //     setEnrollmentHobbiesErrors("");
 
-            setElementaryErrors("");
-            setElementaryGraduatedErrors("")
-            setJuniorErrors("");
-            setJuniorGraduatedErrors("");
-            setSeniorErrors("");
-            setSeniorGraduatedErrors("")
-            setVocationalErrors("");
-            setVocationalGraduatedErrors("");
-            setTertiaryErrors("");
-            setTertiaryGraduatedErrors("")
-            setEasySubjectErrors("");
-            setHardSubjectErrors("");
-            setLanguageSpokenErrors("");
-            setReasonErrors("");
+        //     setElementaryErrors("");
+        //     setElementaryGraduatedErrors("")
+        //     setJuniorErrors("");
+        //     setJuniorGraduatedErrors("");
+        //     setSeniorErrors("");
+        //     setSeniorGraduatedErrors("")
+        //     setVocationalErrors("");
+        //     setVocationalGraduatedErrors("");
+        //     setTertiaryErrors("");
+        //     setTertiaryGraduatedErrors("")
+        //     setEasySubjectErrors("");
+        //     setHardSubjectErrors("");
+        //     setLanguageSpokenErrors("");
+        //     setReasonErrors("");
 
-            setLearnErrors("");
-            setTalkErrors("");
-            setCounselorTalkErrors("");
-            setHelpErrors("");
-            setGuardianNameErrors("");
-            setGuardianContactErrors(""); 
-            setGuardianAddressErrors("");
+        //     setLearnErrors("");
+        //     setTalkErrors("");
+        //     setCounselorTalkErrors("");
+        //     setHelpErrors("");
+        //     setGuardianNameErrors("");
+        //     setGuardianContactErrors(""); 
+        //     setGuardianAddressErrors("");
 
-            ConfirmationBox();
-        }
+        //     ConfirmationBox();
+        // }
     }
 
     useEffect(() => {
@@ -399,6 +399,7 @@ function EnrollmentForm() {
                                 placeholder="Year Entered"
                                 name="enrollment_year_entered"
                                 value={enrollment_year_entered}
+                                required
                                 id="enrollment_year_entered"
                                 onChange={(e) => {
                                     setEnrollmentYearEntered(e.target.value)
@@ -412,6 +413,7 @@ function EnrollmentForm() {
                                 name="gender_preference"
                                 value={gender_preference}
                                 id="gender_preference"
+                                required
                                 onChange={(e) => {
                                     setGenderPreference(e.target.value)
                                 }}>
@@ -431,6 +433,7 @@ function EnrollmentForm() {
                                 name="Nationality"
                                 value={nationality}
                                 id="nationality"
+                                required
                                 onChange={(e) => {
                                     setNationality(e.target.value)
                                 }}
@@ -445,6 +448,7 @@ function EnrollmentForm() {
                                 name="religion"
                                 value={religion}
                                 id="religion"
+                                required
                                 onChange={(e) => {
                                     setReligion(e.target.value)
                                 }}
@@ -459,6 +463,7 @@ function EnrollmentForm() {
                                 name="place_of_birth"
                                 value={place_of_birth}
                                 id="place_of_birth"
+                                required
                                 onChange={(e) => {
                                     setPlacofBirth(e.target.value)
                                 }}
@@ -473,6 +478,7 @@ function EnrollmentForm() {
                                 name="city_address"
                                 value={city_address}
                                 id="city_address"
+                                required
                                 onChange={(e) => {
                                     setCityAddress(e.target.value)
                                 }}
@@ -487,6 +493,7 @@ function EnrollmentForm() {
                                 name="provincial_address"
                                 value={provincial_address}
                                 id="provincial_address"
+                                required
                                 onChange={(e) => {
                                     setProvincialAddress(e.target.value)
                                 }}
@@ -499,6 +506,7 @@ function EnrollmentForm() {
                                 name="civil_status"
                                 value={civil_status}
                                 id="civil_status"
+                                required
                                 onChange={(e) => {
                                     setCivilStatus(e.target.value)
                                 }}>
@@ -517,6 +525,7 @@ function EnrollmentForm() {
                                 placeholder="Facebook Account"
                                 value={fb_account}
                                 id="fb_account"
+                                required
                                 onChange={(e) => {
                                     setFbAccount(e.target.value)
                                 }}
@@ -530,6 +539,7 @@ function EnrollmentForm() {
                                 placeholder="Father's Name"
                                 value={father_name}
                                 id="father_name"
+                                required
                                 onChange={(e) => {
                                     setFatherName(e.target.value)
                                 }}
@@ -543,6 +553,7 @@ function EnrollmentForm() {
                                 placeholder="Father's Occupation"
                                 value={father_occupation}
                                 id="father_occupation"
+                                required
                                 onChange={(e) => {
                                     setFatherOccupation(e.target.value)
                                 }}
@@ -556,6 +567,7 @@ function EnrollmentForm() {
                                 placeholder="Father's Education"
                                 value={father_education}
                                 id="father_education"
+                                required
                                 onChange={(e) => {
                                     setFatherEducation(e.target.value)
                                 }}
@@ -569,6 +581,7 @@ function EnrollmentForm() {
                                 placeholder="Mother's Name"
                                 value={mother_name}
                                 id="mother_name"
+                                required
                                 onChange={(e) => {
                                     setMotherName(e.target.value)
                                 }}
@@ -582,6 +595,7 @@ function EnrollmentForm() {
                                 placeholder="Mother's Occupation"
                                 value={mother_occupation}
                                 id="mother_occupation"
+                                required
                                 onChange={(e) => {
                                     setMotherOccupation(e.target.value)
                                 }}
@@ -594,6 +608,7 @@ function EnrollmentForm() {
                                 type="text"
                                 placeholder="Mother's Education"
                                 value={mother_education}
+                                required
                                 id="mother_education"
                                 onChange={(e) => {
                                     setMotherEducation(e.target.value)
@@ -607,6 +622,7 @@ function EnrollmentForm() {
                                 name="marital_status"
                                 value={marital_status}
                                 id="marital_status"
+                                required
                                 onChange={(e) => {
                                     setMaritalStatus(e.target.value)
                                 }}>
@@ -626,6 +642,7 @@ function EnrollmentForm() {
                                 name="annual_income"
                                 value={annual_income}
                                 id="annual_income"
+                                required
                                 onChange={(e) => {
                                     setAnnualIncome(e.target.value)
                                 }}>
@@ -646,6 +663,7 @@ function EnrollmentForm() {
                                 placeholder="Hobbies, Skills, and Interest"
                                 value={enrollment_hobbies}
                                 id="enrollment_hobbies"
+                                required
                                 onChange={(e) => {
                                     setEnrollmentHobbies(e.target.value)
                                 }}
@@ -662,6 +680,7 @@ function EnrollmentForm() {
                                 placeholder="Elementary School"
                                 value={enrollment_elementary}
                                 id="enrollment_elementary"
+                                required
                                 onChange={(e) => {
                                     setElementary(e.target.value)
                                 }}
@@ -675,6 +694,7 @@ function EnrollmentForm() {
                                 placeholder="Elementary Year Graduated"
                                 value={elementary_graduated}
                                 id="elementary_graduated"
+                                required
                                 onChange={(e) => {
                                     setElementaryGraduated(e.target.value)
                                 }}
@@ -687,6 +707,7 @@ function EnrollmentForm() {
                                 type="text"
                                 placeholder="Junior High School"
                                 value={enrollment_junior}
+                                required
                                 id="enrollment_junior"
                                 onChange={(e) => {
                                     setJunior(e.target.value)
@@ -701,6 +722,7 @@ function EnrollmentForm() {
                                 placeholder="Junior High Year Graduated"
                                 value={junior_graduated}
                                 id="junior_graduated"
+                                required
                                 onChange={(e) => {
                                     setJuniorGraduated(e.target.value)
                                 }}
@@ -714,6 +736,7 @@ function EnrollmentForm() {
                                 placeholder="Senior High School"
                                 value={enrollment_senior}
                                 id="enrollment_senior"
+                                required
                                 onChange={(e) => {
                                     setSenior(e.target.value)
                                 }}
@@ -727,14 +750,13 @@ function EnrollmentForm() {
                                 placeholder="Senior High Year Graduated"
                                 value={senior_graduated}
                                 id="senior_graduated"
+                                required
                                 onChange={(e) => {
                                     setSeniorGraduated(e.target.value)
                                 }}
                             />
                         </div>
                         <span className="enrollment-error">{senior_graduated_errors}</span>
-                        
-                        <span className="enrollment-error">{junior_graduated_errors}</span>
                         <div className="enrollment-divs">
                             <label><h3 id="enrollment-label">*Vocational (Type N/A if not applicable)</h3></label>
                             <input
@@ -742,6 +764,7 @@ function EnrollmentForm() {
                                 placeholder="Vocational"
                                 value={enrollment_vocational}
                                 id="enrollment_vocational"
+                                required
                                 onChange={(e) => {
                                     setVocational(e.target.value)
                                 }}
@@ -754,6 +777,7 @@ function EnrollmentForm() {
                                 type="text"
                                 placeholder="Vocational Graduated"
                                 value={vocational_graduated}
+                                required
                                 id="vocational_graduated"
                                 onChange={(e) => {
                                     setVocationalGraduated(e.target.value)
@@ -767,6 +791,7 @@ function EnrollmentForm() {
                                 placeholder="Tertiary"
                                 value={enrollment_tertiary}
                                 id="enrollment_tertiary"
+                                required
                                 onChange={(e) => {
                                     setTertiary(e.target.value)
                                 }}
@@ -780,6 +805,7 @@ function EnrollmentForm() {
                                 placeholder="Tertiary Graduated"
                                 value={tertiary_graduated}
                                 id="tertiary_graduated"
+                                required
                                 onChange={(e) => {
                                     setTertiaryGraduated(e.target.value)
                                 }}
@@ -791,6 +817,7 @@ function EnrollmentForm() {
                             <select
                                 name="easy_subject"
                                 value={easy_subject}
+                                required
                                 id="easy_subject"
                                 onChange={(e) => {
                                     setEasySubject(e.target.value)
@@ -813,6 +840,7 @@ function EnrollmentForm() {
                             <select
                                 name="hard_subject"
                                 value={hard_subject}
+                                required
                                 id="hard_subject"
                                 onChange={(e) => {
                                     setHardSubject(e.target.value)
@@ -836,6 +864,7 @@ function EnrollmentForm() {
                                 name="language_spoken"
                                 value={language_spoken}
                                 id="language_spoken"
+                                required
                                 onChange={(e) => {
                                     setLanguageSpoken(e.target.value)
                                 }}>
@@ -858,6 +887,7 @@ function EnrollmentForm() {
                                 name="enrollment_reason"
                                 value={enrollment_reason}
                                 id="enrollment_reason"
+                                required
                                 onChange={(e) => {
                                     setReason(e.target.value)
                                 }}>
@@ -883,6 +913,7 @@ function EnrollmentForm() {
                                 name="enrollment_learn"
                                 value={enrollment_learn}
                                 id="enrollment_learn"
+                                required
                                 onChange={(e) => {
                                     setLearn(e.target.value)
                                 }}>
@@ -901,6 +932,7 @@ function EnrollmentForm() {
                                 name="enrollment_talk"
                                 value={enrollment_talk}
                                 id="enrollment_talk"
+                                required
                                 onChange={(e) => {
                                     setTalk(e.target.value)
                                 }}>
@@ -922,6 +954,7 @@ function EnrollmentForm() {
                                 name="counselor_talk"
                                 value={counselor_talk}
                                 id="counselor_talk"
+                                required
                                 onChange={(e) => {
                                     setCounselorTalk(e.target.value)
                                 }}>
@@ -937,6 +970,7 @@ function EnrollmentForm() {
                                 name="enrollment_help"
                                 value={enrollment_help}
                                 id="enrollment_help"
+                                required
                                 onChange={(e) => {
                                     setHelp(e.target.value)
                                 }}>
@@ -959,6 +993,7 @@ function EnrollmentForm() {
                                 placeholder="Guardian's Name"
                                 value={guardian_name}
                                 id="guardian_name"
+                                required
                                 onChange={(e) => {
                                     setGuardianName(e.target.value)
                                 }}
@@ -972,6 +1007,7 @@ function EnrollmentForm() {
                                 placeholder="Guardian's Contact No."
                                 value={guardian_contact}
                                 id="guardian_contact"
+                                required
                                 onChange={(e) => {
                                     setGuardianContact(e.target.value)
                                 }}
@@ -985,6 +1021,7 @@ function EnrollmentForm() {
                                 placeholder="Guardian's Address"
                                 value={guardian_address}
                                 id="guardian_address"
+                                required
                                 onChange={(e) => {
                                     setGuardianAddress(e.target.value)
                                 }}
